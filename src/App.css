@@ -1,42 +1,125 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* Day 1 Pacman */
+.pacman-day1 {
+    position: absolute;
+    z-index: 99;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%) rotate(90deg);
+    animation: loopedDay1 12s linear infinite; /* 12s total cycle */
+    animation-delay: 0s;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Add the Pacman shape for Day 1 */
+.pacman-day1::before, .pacman-day1::after {
+    content: "";
+    display: block;
+    height: 0;
+    width: 0;
+    position: absolute;
+    border: solid 30px yellow;
+    margin-top: -30px;
+    border-radius: 50%;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    animation: mouthTop 0.7s ease infinite;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.pacman-day1::after {
+    border-color: yellow;
+    border-right-color: transparent;
+    border-top-color: transparent;
+    animation: mouthBottom 0.7s ease infinite;
 }
 
-.card {
-  padding: 2em;
+/* Day 2 Pacman */
+.pacman-day2 {
+    position: absolute;
+    z-index: 99;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%) rotate(90deg);
+    animation: loopedDay2 12s linear infinite; /* Same 12s cycle */
+    animation-delay: 0s;
 }
 
-.read-the-docs {
-  color: #888;
+/* Add the Pacman shape for Day 2 */
+.pacman-day2::before, .pacman-day2::after {
+    content: "";
+    display: block;
+    height: 0;
+    width: 0;
+    position: absolute;
+    border: solid 30px yellow;
+    margin-top: -30px;
+    border-radius: 50%;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    animation: mouthTop 0.7s ease infinite;
+}
+
+.pacman-day2::after {
+    border-color: yellow;
+    border-right-color: transparent;
+    border-top-color: transparent;
+    animation: mouthBottom 0.7s ease infinite;
+}
+
+/* Coordinated animations */
+@keyframes loopedDay1 {
+    0% {
+        top: -30px;
+        opacity: 1;
+    }
+    40% { /* Move down Day 1 (0-40% of 12s = 4.8s) */
+        top: calc(100% + 30px);
+        opacity: 1;
+    }
+    45% {
+        opacity: 0; /* Fade out */
+    }
+    100% {
+        top: -30px;
+        opacity: 0; /* Stay hidden */
+    }
+}
+
+@keyframes loopedDay2 {
+    0% {
+        top: -30px;
+        opacity: 0; /* Start hidden */
+    }
+    50% {
+        top: -30px;
+        opacity: 0; /* Appear at 50% (6s) */
+    }
+    83% { /* Move down Day 2 (50-83% of 12s = 4s) */
+        top: calc(100% + 30px);
+        opacity: 1;
+    }
+    88% {
+        opacity: 0; /* Fade out */
+    }
+    100% {
+        top: -30px;
+        opacity: 0;
+    }
+}
+
+/* Mouth animations */
+@keyframes mouthTop {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(44deg);
+    }
+}
+
+@keyframes mouthBottom {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(-44deg);
+    }
 }
