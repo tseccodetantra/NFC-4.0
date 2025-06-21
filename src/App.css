@@ -1,3 +1,13 @@
+.roadmap-card-glow {
+    position: relative;
+}
+
+.roadmap-card-glow:hover {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+    transform: scale(1.05) translateY(-4px) !important;
+}
+
+
 /* Day 1 Pacman */
 .pacman-day1 {
     position: absolute;

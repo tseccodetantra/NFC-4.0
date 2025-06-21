@@ -24,3 +24,4 @@ dist-ssr
 *.sw?
 Dots.jsx
 Pacman.jsx
+SimpleSponsorCard.jsx

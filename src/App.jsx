@@ -47,7 +47,7 @@ function App(){
                 <div className="relative mb-20">
                     {/* Day 1 Vertical Line */}
                     <div className="w-1 bg-[#DC53E6] absolute left-1/2 transform -translate-x-1/2 z-10" 
-                         style={{ height: `${day1Events.length * 154}px`, top: '0px' }}>
+                         style={{ height: `${day1Events.length * 150}px`, top: '0px' }}>
                     </div>
 
                     {/* Pacman moving down the line */}
