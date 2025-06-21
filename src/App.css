@@ -17,6 +17,7 @@
     transform: translateX(-50%) rotate(90deg);
     animation: loopedDay1 12s linear infinite; /* 12s total cycle */
     animation-delay: 0s;
+    display: none;
 }
 
 /* Add the Pacman shape for Day 1 */
@@ -50,6 +51,7 @@
     transform: translateX(-50%) rotate(90deg);
     animation: loopedDay2 12s linear infinite; /* Same 12s cycle */
     animation-delay: 0s;
+    display: none;
 }
 
 /* Add the Pacman shape for Day 2 */
@@ -68,6 +70,39 @@
 }
 
 .pacman-day2::after {
+    border-color: yellow;
+    border-right-color: transparent;
+    border-top-color: transparent;
+    animation: mouthBottom 0.7s ease infinite;
+}
+
+
+/* GSAP Scroll-controlled Pacman - same design as original */
+.pacman-scroll {
+    position: absolute;
+    z-index: 99;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%) rotate(90deg);
+    opacity: 0; /* Start invisible, GSAP controls this */
+}
+
+/* Keep your exact same Pacman design */
+.pacman-scroll::before, .pacman-scroll::after {
+    content: "";
+    display: block;
+    height: 0;
+    width: 0;
+    position: absolute;
+    border: solid 30px yellow;
+    margin-top: -30px;
+    border-radius: 50%;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    animation: mouthTop 0.7s ease infinite;
+}
+
+.pacman-scroll::after {
     border-color: yellow;
     border-right-color: transparent;
     border-top-color: transparent;
