@@ -11,9 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
 function App(){
 
     const day1PacmanRef = useRef();
-    // const day2PacmanRef = useRef();
     const day1SectionRef = useRef();
-    // const day2SectionRef = useRef();
     const wholeSectionRef = useRef(); // New ref for the entire timeline
     
     const day1Events = [
@@ -51,7 +49,6 @@ function App(){
                 start: "top 10%",
                 end: "bottom 99%",
                 scrub: 1,
-                // markers: true,
                 onEnter: () => {
                     console.log("timeline enter");
                     gsap.set(day1PacmanRef.current, { opacity: 1 });
@@ -87,26 +84,30 @@ function App(){
 
     return (
         <>
-        <div className='bg-[#17173B] h-full w-full'>
+        <div className='min-h-screen w-screen'>
             <div className='flex flex-col justify-center items-center' ref={wholeSectionRef}>
                 <h1 className='text-5xl text-center text-[#08968A] py-5'
                 style={{fontFamily: 'Pixelify Sans'}}
                 >Schedule</h1>
                 
                 {/* DAY 1 SECTION */}
-                <h2 className='text-3xl sm:text-left w-screen max-w-3xl text-[#08968A] py-5'
+                <h2 className='text-3xl text-center sm:ml-0 sm:text-left w-screen max-w-3xl text-[#08968A] py-0 sm:py-5'
                 style={{fontFamily: 'Pixelify Sans'}}
                 >DAY - 1</h2>
-                <div className="relative mb-20" ref={day1SectionRef}>
-                    {/* Day 1 Vertical Line */}
-                    <div className="w-1 bg-[#DC53E6] absolute left-1/2 transform -translate-x-1/2 z-10" 
-                         style={{ height: `${day1Events.length * 255}px`, top: '0px' }}>
+                <div className="relative mb-2 sm:mb-20" ref={day1SectionRef}>
+                    {/* Vertical Line */}
+                    <div className="w-1 mb-20 bg-[#DC53E6] absolute top-5 sm:top-0 left-0 sm:left-1/2 transform sm:-translate-x-1/2 z-10" 
+                         style={{ 
+                            height: window.innerWidth < 640
+                            ? `${day1Events.length * 180}px`
+                            : `${day1Events.length * 260}px` 
+                            }}>
                     </div>
 
-                    {/* GSAP Controlled Pacman for Day 1 */}
+                    {/* GSAP Controlled Pacman */}
                     <div 
                         ref={day1PacmanRef}
-                        className='pacman-scroll'
+                        className='pacman-scroll hidden sm:block'
                     ></div>
 
                     {day1Events.map((item, index) => (
@@ -121,22 +122,11 @@ function App(){
                 </div>
 
                 {/* DAY 2 SECTION */}
-                <h2 className='text-3xl w-screen max-w-3xl sm:text-right text-[#08968A] py-5'
+                <h2 className='text-3xl w-screen max-w-3xl text-center sm:ml-0 sm:text-right text-[#08968A] py-5'
                 style={{fontFamily: 'Pixelify Sans'}}
                 >DAY - 2</h2>
 
-                <div className="relative">
-                    {/* Day 2 Vertical Line */}
-                    {/* <div className="w-1 bg-[#DC53E6] absolute left-1/2 transform -translate-x-1/2 z-10" 
-                         style={{ height: `${day2Events.length * 155}px`, top: '0px' }}>
-                    </div> */}
-
-                    {/* GSAP Controlled Pacman for Day 2 */}
-                    {/* <div 
-                        ref={day2PacmanRef}
-                        className='pacman-scroll'
-                    ></div> */}
-
+                <div className="relative mb-20">
                     {day2Events.map((item, index) => (
                         <RoadmapCard 
                             key={`day2-${index}`}

@@ -1,3 +1,13 @@
+body {
+    background-color: #17173B;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    background-color: #17173B;
+}
+
 .roadmap-card-glow {
     position: relative;
 }
@@ -6,76 +16,6 @@
     box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
     transform: scale(1.05) translateY(-4px) !important;
 }
-
-
-/* Day 1 Pacman */
-.pacman-day1 {
-    position: absolute;
-    z-index: 99;
-    top: -30px;
-    left: 50%;
-    transform: translateX(-50%) rotate(90deg);
-    animation: loopedDay1 12s linear infinite; /* 12s total cycle */
-    animation-delay: 0s;
-    display: none;
-}
-
-/* Add the Pacman shape for Day 1 */
-.pacman-day1::before, .pacman-day1::after {
-    content: "";
-    display: block;
-    height: 0;
-    width: 0;
-    position: absolute;
-    border: solid 30px yellow;
-    margin-top: -30px;
-    border-radius: 50%;
-    border-right-color: transparent;
-    border-bottom-color: transparent;
-    animation: mouthTop 0.7s ease infinite;
-}
-
-.pacman-day1::after {
-    border-color: yellow;
-    border-right-color: transparent;
-    border-top-color: transparent;
-    animation: mouthBottom 0.7s ease infinite;
-}
-
-/* Day 2 Pacman */
-.pacman-day2 {
-    position: absolute;
-    z-index: 99;
-    top: -30px;
-    left: 50%;
-    transform: translateX(-50%) rotate(90deg);
-    animation: loopedDay2 12s linear infinite; /* Same 12s cycle */
-    animation-delay: 0s;
-    display: none;
-}
-
-/* Add the Pacman shape for Day 2 */
-.pacman-day2::before, .pacman-day2::after {
-    content: "";
-    display: block;
-    height: 0;
-    width: 0;
-    position: absolute;
-    border: solid 30px yellow;
-    margin-top: -30px;
-    border-radius: 50%;
-    border-right-color: transparent;
-    border-bottom-color: transparent;
-    animation: mouthTop 0.7s ease infinite;
-}
-
-.pacman-day2::after {
-    border-color: yellow;
-    border-right-color: transparent;
-    border-top-color: transparent;
-    animation: mouthBottom 0.7s ease infinite;
-}
-
 
 /* GSAP Scroll-controlled Pacman - same design as original */
 .pacman-scroll {
@@ -87,7 +27,6 @@
     opacity: 0; /* Start invisible, GSAP controls this */
 }
 
-/* Keep your exact same Pacman design */
 .pacman-scroll::before, .pacman-scroll::after {
     content: "";
     display: block;
@@ -107,51 +46,6 @@
     border-right-color: transparent;
     border-top-color: transparent;
     animation: mouthBottom 0.7s ease infinite;
-}
-
-/* Coordinated animations */
-@keyframes loopedDay1 {
-    0% {
-        top: -30px;
-        opacity: 1;
-    }
-    35% { /* Move down Day 1 */
-        top: calc(100% + 30px);
-        opacity: 1;
-    }
-    40% {
-        opacity: 0; /* Fade out */
-    }
-    100% {
-        top: -30px;
-        opacity: 0; /* Stay hidden */
-    }
-}
-
-@keyframes loopedDay2 {
-    0% {
-        top: -30px;
-        opacity: 0; /* Start hidden */
-    }
-    45% {
-        top: -30px;
-        opacity: 0; /* Stay hidden longer */
-    }
-    50% {
-        top: -30px;
-        opacity: 1; /* Fade in at start position */
-    }
-    80% { /* Move down Day 2 */
-        top: calc(100% + 30px);
-        opacity: 1;
-    }
-    90% {
-        opacity: 0; /* Fade out */
-    }
-    100% {
-        top: -30px;
-        opacity: 0;
-    }
 }
 
 /* Mouth animations */
