@@ -240,9 +240,16 @@ function Navbar() {
         canvas.height = rect.height + extraHeight;
       }
     }
+
     updateCanvasSize();
+    requestAnimationFrame(updateCanvasSize); //update again just in case
+    const timeout = setTimeout(updateCanvasSize, 60); //fallback
+
     window.addEventListener("resize", updateCanvasSize);
-    return () => window.removeEventListener("resize", updateCanvasSize);
+    return () => {
+      window.removeEventListener("resize", updateCanvasSize);
+      clearTimeout(timeout);
+    };
   }, [links.length]);
 
   return (
