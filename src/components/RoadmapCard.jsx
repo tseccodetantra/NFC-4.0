@@ -8,9 +8,9 @@ function RoadmapCard({
 }){
     const isLeft = pos%2 === 0
     return (
-        <div className={`${isLeft ? 'sm:ml-0 sm:mr-72' : 'sm:ml-72 sm:mr-0'} ml-4 my-4`}>
+        <div className={`${isLeft ? 'sm:ml-0 sm:mr-72' : 'sm:ml-72 sm:mr-0'} ml-4 my-4 flex items-center`}>
 
-            <div className="w-3 h-3 bg-yellow-400 rounded-xl absolute left-0.5 sm:left-1/2 transform -translate-x-1/2 translate-y-9 sm:translate-y-12 z-10"
+            <div className="w-3 h-3 bg-yellow-400 rounded-xl absolute left-0.5 sm:left-1/2 transform -translate-x-1/2 z-10"
                 data-aos="zoom-in"
                 data-aos-delay={animationDelay + 20}
                 data-aos-duration="300"
@@ -27,6 +27,15 @@ function RoadmapCard({
             data-aos-duration="300"
             data-aos-easing="ease-out-cubic"
             >
+
+                {/* Connecting line - positioned to connect card edge to dot */}
+            <div 
+                className={`hidden sm:block connecting-line ${isLeft ? 'line-left' : 'line-right'} -translate-y-1/2`}
+                data-aos="grow-line"
+                data-aos-delay={animationDelay + 20}
+                data-aos-duration="300"
+            ></div>
+
                 <p className="sm:text-2xl text-xl mb-2 text-center text-gray-300 hover:text-shadow-blue-500"
                 style={{fontFamily: 'Pixelify Sans'}}
                 >{event}</p>

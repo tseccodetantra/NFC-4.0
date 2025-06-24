@@ -66,3 +66,62 @@ html {
         transform: rotate(-44deg);
     }
 }
+
+.vertical-line-glow {
+    box-shadow: 
+        0 0 10px rgba(220, 83, 230, 0.8),
+        0 0 20px rgba(220, 83, 230, 0.6),
+        0 0 30px rgba(220, 83, 230, 0.4);
+}
+/* Connecting lines - Desktop only */
+.connecting-line {
+    position: absolute;
+    height: 2px;
+    background: linear-gradient(90deg, #E873F0, transparent);
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    opacity: 0;
+    width: 0;
+}
+
+.line-left {
+    right: -165px; /* Start from the card's right edge */
+    transform-origin: left center;
+}
+
+.line-right {
+    left: -165px; /* Start from the card's left edge */
+    transform-origin: right center;
+    background: linear-gradient(270deg, #ffffff, transparent);
+    width: 0;
+}
+
+/* AOS animation for line growth */
+[data-aos="grow-line"] {
+    transition: width 0.8s ease-out, opacity 0.8s ease-out;
+}
+
+[data-aos="grow-line"].aos-animate.line-left {
+    width: 10rem !important; /* Extend toward center */
+    opacity: 0.7 !important;
+}
+
+[data-aos="grow-line"].aos-animate.line-right {
+    width: 10rem !important; /* Extend toward center */
+    opacity: 0.7 !important;
+}
+
+/* Subtle pulse animation */
+.connecting-line.aos-animate {
+    animation: subtle-pulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes subtle-pulse {
+    0% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 0.8;
+    }
+}

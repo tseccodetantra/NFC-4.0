@@ -91,12 +91,12 @@ function App(){
                 >Schedule</h1>
                 
                 {/* DAY 1 SECTION */}
-                <h2 className='text-3xl text-center sm:ml-0 sm:text-left w-screen max-w-3xl text-[#08968A] py-0 sm:py-5'
+                <h2 className='text-3xl text-center sm:ml-0 sm:text-left w-screen max-w-3xl text-[#77F1FF] py-0 sm:py-5'
                 style={{fontFamily: 'Pixelify Sans'}}
                 >DAY - 1</h2>
                 <div className="relative mb-2 sm:mb-20" ref={day1SectionRef}>
                     {/* Vertical Line */}
-                    <div className="w-1 mb-20 bg-[#DC53E6] absolute top-5 sm:top-0 left-0 sm:left-1/2 transform sm:-translate-x-1/2 z-10" 
+                    <div className="w-1 mb-20 bg-[#DC53E6] absolute top-5 sm:top-0 left-0 sm:left-1/2 transform sm:-translate-x-1/2 z-10 vertical-line-glow animate-pulse" 
                          style={{ 
                             height: window.innerWidth < 640
                             ? `${day1Events.length * 180}px`
@@ -122,7 +122,7 @@ function App(){
                 </div>
 
                 {/* DAY 2 SECTION */}
-                <h2 className='text-3xl w-screen max-w-3xl text-center sm:ml-0 sm:text-right text-[#08968A] py-5'
+                <h2 className='text-3xl w-screen max-w-3xl text-center sm:ml-0 sm:text-right text-[#77F1FF] py-5'
                 style={{fontFamily: 'Pixelify Sans'}}
                 >DAY - 2</h2>
 
