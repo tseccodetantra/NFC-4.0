@@ -86,20 +86,18 @@ function App(){
         <>
         <div className='min-h-screen w-screen'>
             <div className='flex flex-col justify-center items-center' ref={wholeSectionRef}>
-                <h1 className='text-5xl text-center text-[#08968A] py-5'
-                style={{fontFamily: 'Pixelify Sans'}}
+                <h1 className='text-4xl text-center text-[#08968A] py-5 press-start-2p-regular animate-pulse'
                 >Schedule</h1>
                 
                 {/* DAY 1 SECTION */}
-                <h2 className='text-3xl text-center sm:ml-0 sm:text-left w-screen max-w-3xl text-[#77F1FF] py-0 sm:py-5'
-                style={{fontFamily: 'Pixelify Sans'}}
+                <h2 className='text-2xl text-center sm:mr-16 sm:text-left w-screen max-w-3xl text-[#77F1FF] py-0 sm:py-5 press-start-2p-regular animate-bounce'
                 >DAY - 1</h2>
                 <div className="relative mb-2 sm:mb-20" ref={day1SectionRef}>
                     {/* Vertical Line */}
                     <div className="w-1 mb-20 bg-[#DC53E6] absolute top-5 sm:top-0 left-0 sm:left-1/2 transform sm:-translate-x-1/2 z-10 vertical-line-glow animate-pulse" 
                          style={{ 
                             height: window.innerWidth < 640
-                            ? `${day1Events.length * 180}px`
+                            ? `${day1Events.length * 170}px`
                             : `${day1Events.length * 260}px` 
                             }}>
                     </div>
@@ -122,8 +120,7 @@ function App(){
                 </div>
 
                 {/* DAY 2 SECTION */}
-                <h2 className='text-3xl w-screen max-w-3xl text-center sm:ml-0 sm:text-right text-[#77F1FF] py-5'
-                style={{fontFamily: 'Pixelify Sans'}}
+                <h2 className='text-2xl w-screen max-w-3xl text-center sm:ml-16 sm:text-right text-[#77F1FF] py-5 press-start-2p-regular animate-bounce'
                 >DAY - 2</h2>
 
                 <div className="relative mb-20">

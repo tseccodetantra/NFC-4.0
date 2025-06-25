@@ -8,6 +8,12 @@ html {
     background-color: #17173B;
 }
 
+.press-start-2p-regular {
+  font-family: "Press Start 2P", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
 .roadmap-card-glow {
     position: relative;
 }

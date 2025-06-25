@@ -36,10 +36,9 @@ function RoadmapCard({
                 data-aos-duration="300"
             ></div>
 
-                <p className="sm:text-2xl text-xl mb-2 text-center text-gray-300 hover:text-shadow-blue-500"
-                style={{fontFamily: 'Pixelify Sans'}}
+                <p className="sm:text-lg mb-2 text-center text-gray-300 hover:text-shadow-blue-500 press-start-2p-regular"
                 >{event}</p>
-                <div className="text-lg font-semibold text-gray-300 hover:text-shadow-blue-500"
+                <div className="text-sm font-semibold text-gray-300 hover:text-shadow-blue-500 press-start-2p-regular"
                 >{time}</div>
             </div>
         </div>
