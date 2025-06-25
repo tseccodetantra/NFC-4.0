@@ -90,7 +90,8 @@ function Navbar() {
       const ctx = canvas.getContext("2d");
       const cellWidth = canvas.width / links.length;
       const targetX = cellWidth * hoveredIndex + cellWidth / 2;
-      const targetY = canvas.height - 2;
+      // Mario's feet just below the bricks
+      const targetY = ul.getBoundingClientRect().height + 40;
 
       if (!currentPosRef.current) {
         currentPosRef.current = { x: targetX, y: targetY };
@@ -228,7 +229,7 @@ function Navbar() {
     previousHoveredIndexRef.current = hoveredIndex;
   }, [hoveredIndex]);
 
-  // Ensure canvas is proprer size and has proper position
+  // Ensure canvas is proper size and position
   useEffect(() => {
     function updateCanvasSize() {
       const canvas = canvasRef.current;
@@ -242,8 +243,8 @@ function Navbar() {
     }
 
     updateCanvasSize();
-    requestAnimationFrame(updateCanvasSize); //update again just in case
-    const timeout = setTimeout(updateCanvasSize, 60); //fallback
+    requestAnimationFrame(updateCanvasSize);
+    const timeout = setTimeout(updateCanvasSize, 60);
 
     window.addEventListener("resize", updateCanvasSize);
     return () => {
@@ -252,48 +253,50 @@ function Navbar() {
     };
   }, [links.length]);
 
-  return (
-    <nav className="navbar">
-      <div className="navbar-container">
-        {isMobile ? (
+  // --- RENDER ---
+  if (isMobile) {
+    return (
+      <nav className="navbar">
+        <div className="navbar-container">
           <MobileNavbar links={links} brand="NFC 4.0" />
-        ) : (
-          <div className="mario-navbar-group">
-            <div
-              className="links-wrapper"
-              style={{ "--brick": `url(${brick})` }}
-            >
-              <ul className="navbar-links" ref={ulRef}>
-                {links.map((link, index) => (
-                  <li
-                    key={link.text}
-                    className={
-                      `navbar-link` +
-                      (activeIndex === index ? " hit" : "") +
-                      (flashIndex === index ? " flash" : "") +
-                      (bumpIndex === index ? " bump" : "")
-                    }
-                    onMouseEnter={() => {
-                      if (!isMobile) setHoveredIndex(index);
-                    }}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setHoveredIndex(index);
-                      handleClick(index, link.href);
-                    }}
-                    draggable="false"
-                  >
-                    <a href={link.href} draggable="false">
-                      {link.text}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <canvas className="game-canvas" ref={canvasRef} />
-          </div>
-        )}
-      </div>
+        </div>
+      </nav>
+    );
+  }
+
+  // Desktop (Mario) navbar: sticky, floating, no navbar-container/nav wrapper
+  return (
+    <nav
+      className="links-wrapper mario-sticky-navbar"
+      style={{ "--brick": `url(${brick})` }}
+    >
+      <ul className="navbar-links" ref={ulRef}>
+        {links.map((link, index) => (
+          <li
+            key={link.text}
+            className={
+              `navbar-link` +
+              (activeIndex === index ? " hit" : "") +
+              (flashIndex === index ? " flash" : "") +
+              (bumpIndex === index ? " bump" : "")
+            }
+            onMouseEnter={() => {
+              if (!isMobile) setHoveredIndex(index);
+            }}
+            onClick={(e) => {
+              e.preventDefault();
+              setHoveredIndex(index);
+              handleClick(index, link.href);
+            }}
+            draggable="false"
+          >
+            <a href={link.href} draggable="false">
+              {link.text}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <canvas className="game-canvas" ref={canvasRef} />
     </nav>
   );
 }
