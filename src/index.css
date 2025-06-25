@@ -1,5 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
+
+@theme {
+  --font-retro: "Press Start 2P", 'sans-serif'; 
+}
 
 @custom-variant dark (&:is(.dark *));
 
@@ -74,6 +79,8 @@
   --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
+  --neon-blue: #00f0ff;
+  --neon-pink: #ff00d4;
 }
 
 .dark {
@@ -117,4 +124,8 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.pixel-art {
+  image-rendering: pixelated;
 }
