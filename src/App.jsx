@@ -1,17 +1,12 @@
-// src/App.jsx
-
-import React from 'react';
-import QuestLog from './QuestLog'; // Adjust path if needed
-import './App.css'; // Make sure this contains the QuestLog CSS
+import RoadmapCard from "./components/RoadmapCard"
+import "./App.css"
 
 function App() {
   return (
     <div className="App">
-      {/* You can add a header or other sections here */}
-      <QuestLog />
-      {/* You can add more sections below */}
+      <RoadmapCard />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
