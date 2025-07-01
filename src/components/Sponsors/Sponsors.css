@@ -1,0 +1,53 @@
+@import "tailwindcss/preflight";
+@import "tailwindcss/utilities";
+/* @tailwind utilities; */
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+  margin: 0;
+  padding: 0;
+}
+
+@layer base {
+  .pixel-font {
+    font-family: "Press Start 2P", system-ui, sans-serif;
+    letter-spacing: 1px;
+  }
+}
+
+@layer components {
+  .glow-card {
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+    transition: box-shadow 0.3s ease;
+  }
+
+  .glow-card:hover {
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.4);
+  }
+
+  .line-clamp-2 {
+    display: -webkit-box;
+    /* parthavi changed this */
+    line-clamp: 3;
+-webkit-line-clamp: 3;   
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
