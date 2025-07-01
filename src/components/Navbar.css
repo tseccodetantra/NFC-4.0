@@ -357,7 +357,7 @@
 }
 .mario-sticky-navbar {
   font-family: "Press Start 2P", cursive;
-  position: sticky;
+  position: fixed;
   top: 24px;
   right: 32px;
   left: auto;
