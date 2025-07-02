@@ -1,4 +1,89 @@
-.App {
-  min-height: 100vh;
-  width: 100%;
+/* Additional component-specific styles */
+.pixel-text {
+  font-family: "Press Start 2P", "Courier New", monospace;
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: unset;
+}
+
+.pixel-button {
+  font-family: "Press Start 2P", "Courier New", monospace;
+  font-size: 10px;
+  padding: 12px 16px;
+  border: 3px solid;
+  background: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.1s ease;
+  cursor: pointer;
+  border-color: #22d3ee;
+  color: #22d3ee;
+}
+
+.pixel-button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.5);
+  background: #22d3ee;
+  color: black;
+}
+
+.pixel-button.active {
+  background: #facc15;
+  color: black;
+  border-color: #eab308;
+}
+
+/* Pacman animations */
+@keyframes pacman-top {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-35deg);
+  }
+}
+
+@keyframes pacman-bottom {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(35deg);
+  }
+}
+
+.animate-pacman-top {
+  animation: pacman-top 0.5s infinite linear;
+}
+
+.animate-pacman-bottom {
+  animation: pacman-bottom 0.5s infinite linear;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .timeline-item {
+    flex-direction: row !important;
+    padding-left: 3rem;
+  }
+
+  .timeline-line {
+    left: 1.25rem !important;
+  }
+
+  .timeline-dot {
+    left: 1.25rem !important;
+  }
+
+  .timeline-content {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .timeline-content::before {
+    left: -14px !important;
+    right: auto !important;
+    border-right-color: #facc15 !important;
+    border-left-color: transparent !important;
+  }
 }

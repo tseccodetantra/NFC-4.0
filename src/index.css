@@ -1,4 +1,9 @@
-/* Reset and Base Styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -7,9 +12,6 @@
 
 body {
   font-family: "Press Start 2P", "Courier New", monospace;
-  background: linear-gradient(to bottom, #581c87, #1e3a8a, #312e81);
-  min-height: 100vh;
-  color: white;
   image-rendering: pixelated;
   image-rendering: -moz-crisp-edges;
   image-rendering: crisp-edges;
@@ -21,56 +23,4 @@ body {
 
 #root {
   min-height: 100vh;
-}
-
-/* Pixel Font Classes */
-.pixel-font {
-  font-family: "Press Start 2P", "Courier New", monospace;
-  image-rendering: pixelated;
-  image-rendering: -moz-crisp-edges;
-  image-rendering: crisp-edges;
-}
-
-.pixel-text {
-  font-family: "Press Start 2P", "Courier New", monospace;
-  text-rendering: optimizeSpeed;
-  font-smooth: never;
-  -webkit-font-smoothing: none;
-  -moz-osx-font-smoothing: unset;
-}
-
-/* Modern-Retro button styles */
-.pixel-button {
-  font-family: "Press Start 2P", "Courier New", monospace;
-  font-size: 10px;
-  padding: 12px 16px;
-  border: 3px solid;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: all 0.2s ease;
-  image-rendering: pixelated;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-}
-
-.pixel-button:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.3), 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.modern-card {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-}
-
-.glass-effect {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
 }
