@@ -1,6 +1,7 @@
 "use client"
 
 import "./Squares.css"
+import React from "react"
 import { useEffect, useState } from "react"
 import Squares from "./Squares"
 
@@ -37,15 +38,13 @@ const Block = ({ filled, delay, layer, charIndex, blockIndex }) => {
 
 const Character = ({ char, charIndex }) => {
   const rows = CHAR_MAP[char] || ["00000", "00000", "00000", "00000", "00000"]
-
   return (
     <div className="char-grid">
       {rows.map((row, rowIndex) =>
         row.split("").map((col, colIndex) => {
           // Calculate delay for left to right falling (each character falls as a unit)
-          const charDelay = charIndex * 0.2 // Each character starts 0.2s after previous
+          const charDelay = charIndex * 0.07 // Each character starts 0.2s after previous
           const totalDelay = charDelay // No row delay - all blocks in character fall together
-
           return (
             <Block
               key={`${rowIndex}-${colIndex}`}
@@ -62,7 +61,7 @@ const Character = ({ char, charIndex }) => {
   )
 }
 
-export default function Preloader() {
+ function Preloader() {
   const [isComplete, setIsComplete] = useState(false)
 
   useEffect(() => {
@@ -71,7 +70,7 @@ export default function Preloader() {
       () => {
         setIsComplete(true)
       },
-      totalLetters * 200 + 1000, // Change this number to adjust timing
+      2500, // Change this number to adjust timing
     )
 
     return () => {
@@ -114,3 +113,4 @@ export default function Preloader() {
     </div>
   )
 }
+export default Preloader;

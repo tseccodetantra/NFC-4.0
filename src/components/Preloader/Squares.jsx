@@ -1,5 +1,5 @@
 "use client"
-
+import './Squares1.css';
 import { useRef, useEffect } from "react"
 
 const Squares = ({
