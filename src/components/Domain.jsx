@@ -46,7 +46,7 @@ Develop a decentralized voting platform using smart contracts on Ethereum.`,
 
   return (
     <>
-      <div className="header-container">
+      <div className="header-container" id='domain'>
         <h1 className="gradient-text">Challenge Domains</h1>
         <h2 className="gd-text">Choose your code quest</h2>
       </div>

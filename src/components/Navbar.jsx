@@ -25,7 +25,7 @@ function Navbar() {
   const links = [
     { text: "Home", href: "#home" },
     { text: "About Us", href: "#about" },
-    { text: "Domain", href: "#Domain" },
+    { text: "Domain", href: "#domain" },
     { text: "Roadmap", href: "#roadmap" },
     { text: "FAQ", href: "#faq" },
   ];
