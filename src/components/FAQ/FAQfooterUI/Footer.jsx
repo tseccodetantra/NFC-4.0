@@ -1,12 +1,12 @@
 import React from 'react';
-import {Heart} from "lucide-react"
+//import {Heart} from "lucide-react"
 //import user from "../../assets/users.svg"
-import github from "../assets/github.svg"
+//import github from "../../../assets/github.svg"
 
 
 const Footer = () => {
   return (
-    <footer className="bg-[#0F0B33] text-yellow-300 font-retro px-6 py-20 border-t-4 border-yellow-300 shadow-inner shadow-yellow-800">
+    <footer className="bg-[#0F0B33] text-yellow-300 font-retro px-6 py-20 border-t-4 border-yellow-300 shadow-inner shadow-yellow-800  ">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16 text-center md:text-left">
         
         {/* About */}
@@ -25,13 +25,13 @@ const Footer = () => {
           <ul className="space-y-4 text-sm md:text-base">
             <li>
               <a href="https://devfolio.co" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition font-semibold">
-                🚀 Register on Devfolio
+                🚀 Register on Unstop
               </a>
             </li>
             <li>
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition font-semibold">
+              {/* <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition font-semibold">
                 <img src={github} alt="" className='w-10 h-10 inline ' /> View GitHub Repo
-              </a>
+              </a> */}
             </li>
             <li>
               <a href="#faq" className="hover:text-cyan-400 transition font-semibold">
@@ -39,9 +39,9 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <a href="mailto:contact@tsec.com" className="hover:text-cyan-400 transition font-semibold">
+              {/* <a href="mailto:contact@tsec.com" className="hover:text-cyan-400 transition font-semibold">
                 ✉️ Contact Us
-              </a>
+              </a> */}
             </li>
           </ul>
         </div>
@@ -56,9 +56,9 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <a href="https://twitter.com" className="hover:text-sky-400 font-semibold transition">
+              {/* <a href="https://twitter.com" className="hover:text-sky-400 font-semibold transition">
                 🐦 Twitter (X)
-              </a>
+              </a> */}
             </li>
             <li>
               <a href="https://linkedin.com" className="hover:text-blue-400 font-semibold transition">
@@ -66,9 +66,9 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <a href="tel:+919999999999" className="hover:text-green-300 font-semibold transition">
+              {/* <a href="tel:+919999999999" className="hover:text-green-300 font-semibold transition">
                 📞 +91 99999 99999
-              </a>
+              </a> */}
             </li>
           </ul>
         </div>
@@ -78,8 +78,8 @@ const Footer = () => {
 
       {/* Bottom Bar */}
       <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs md:text-sm text-yellow-200">
-        <div>© {new Date().getFullYear()} Need For Code 3.0 | All rights reserved.</div>
-        <div className="text-cyan-300 italic">Made with <span className='inline-block'><Heart/></span> by Team Codetantra :)</div>
+        <div>© {new Date().getFullYear()} Need For Code 4.0 | All rights reserved.</div>
+        {/* <div className="text-cyan-300 italic">Made with <span className='inline-block'><Heart/></span> by Team Codetantra :)</div> */}
       </div>
     </footer>
   );

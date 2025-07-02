@@ -51,7 +51,7 @@ const faqs = [
   const [selected, setSelected] = useState(-1);
 
   return (
-    <section id="faq" className="px-6 py-4 font-retro text-yellow-300 bg-[#1B1552] faq-start">
+    <section id="faq" className="px-6 py-4 font-retro text-yellow-300 bg-purple faq-start">
       <h2 className="text-2xl md:text-3xl font-retro text-center mb-10 tracking-widest flex items-center justify-center gap-4 flex-wrap">
         <span className="inline-block">
           <img
@@ -103,7 +103,7 @@ const faqs = [
         </div>
 
 
-        <div className="p-8 flex flex-col md:flex-row gap-10 items-start justify-between border-t-1 border-blue-600">
+        <div className="p-8 flex flex-col md:flex-row gap-10 items-start justify-between border-t-0 border-purple">
           <ScrollArea className="h-[400px] w-full">
             <div className="flex-1 flex flex-col gap-6 w-full">
               {faqs.map((faq, index) => (

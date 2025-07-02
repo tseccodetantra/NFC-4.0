@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import pic from '../assets/webdev.png';
-import pic1 from '../assets/blockchain.png';
-import pic2 from '../assets/socialCause.png';
-import pic3 from '../assets/Aiml.png';
+import pic from '../../assets/webdev.png';
+import pic1 from '../../assets/blockchain.png';
+import pic2 from '../../assets/socialCause.png';
+import pic3 from '../../assets/Aiml.png';
 import './Domain.css';
 
 function Domain() {

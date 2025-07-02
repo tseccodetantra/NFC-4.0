@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Navbar.css";
 
-import marioJump from "../assets/mario-jump.png";
-import marioWalk from "../assets/mario-walk.png";
-import brick from "../assets/brick.png";
+import marioJump from "../../assets/mario-jump.png";
+import marioWalk from "../../assets/mario-walk.png";
+import brick from "../../assets/brick.png";
+//import brick from "../assets/BlackBrick.png";
 import MobileNavbar from "./MobileNavbar";
 
 function Navbar() {
@@ -28,10 +29,12 @@ function Navbar() {
     { text: "Domain", href: "#domain" },
     { text: "Roadmap", href: "#roadmap" },
     { text: "FAQ", href: "#faq" },
+    { text: "Sponsors", href: "#faq" },
+    { text: "NFC-3.0", href: "#faq" },
   ];
 
-  const spriteWidth = 16;
-  const spriteHeight = 21;
+  const spriteWidth = 21;
+  const spriteHeight = 26;
 
   const marioJumpSprite = new window.Image();
   marioJumpSprite.src = marioJump;
@@ -84,14 +87,14 @@ function Navbar() {
     const ul = ulRef.current;
     if (canvas && ul) {
       const rect = ul.getBoundingClientRect();
-      const extraHeight = 40;
+      const extraHeight = 50;
       canvas.width = rect.width;
       canvas.height = rect.height + extraHeight;
       const ctx = canvas.getContext("2d");
       const cellWidth = canvas.width / links.length;
       const targetX = cellWidth * hoveredIndex + cellWidth / 2;
       // Mario's feet just below the bricks
-      const targetY = ul.getBoundingClientRect().height + 40;
+      const targetY = ul.getBoundingClientRect().height + extraHeight;
 
       if (!currentPosRef.current) {
         currentPosRef.current = { x: targetX, y: targetY };
@@ -236,7 +239,7 @@ function Navbar() {
       const ul = ulRef.current;
       if (canvas && ul) {
         const rect = ul.getBoundingClientRect();
-        const extraHeight = 40;
+        const extraHeight = 50;
         canvas.width = rect.width;
         canvas.height = rect.height + extraHeight;
       }
