@@ -1,47 +1,31 @@
-"use client"
+import React, { useEffect } from 'react'
+import roadmapData from '../data/roadmapData'
 
-import { useEffect, useState } from "react"
-
-export default function ProgressBar({ roadmapData }) {
-  const [isVisible, setIsVisible] = useState(false)
-  const [progressWidth, setProgressWidth] = useState(0)
-
+const ProgressBar = () => {
   useEffect(() => {
-    setTimeout(() => setIsVisible(true), 600)
+    const completed = roadmapData.filter((s) => s.status === 'completed').length
+    const current = roadmapData.filter((s) => s.status === 'current').length
+    const percent = ((completed + current * 0.5) / roadmapData.length) * 100
 
-    const completedCount = roadmapData.filter((stage) => stage.status === "completed").length
-    const currentCount = roadmapData.filter((stage) => stage.status === "current").length
-    const totalStages = roadmapData.length
-    const progressPercentage = ((completedCount + currentCount * 0.5) / totalStages) * 100
+    const fill = document.getElementById('progressFill')
+    const count = document.getElementById('progressCount')
 
-    setTimeout(() => {
-      setProgressWidth(progressPercentage)
-    }, 1000)
-  }, [roadmapData])
-
-  const completedCount = roadmapData.filter((stage) => stage.status === "completed").length
-  const currentCount = roadmapData.filter((stage) => stage.status === "current").length
-  const totalStages = roadmapData.length
+    if (fill) fill.style.width = `${percent}%`
+    if (count) count.textContent = `${completed + current}/${roadmapData.length} COMPLETE`
+  }, [])
 
   return (
-    <div
-      className={`mt-8 bg-black/50 rounded-lg p-4 border-4 border-cyan-400 transition-all duration-1000 ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-      }`}
-    >
-      <div className="flex justify-between items-center mb-2">
-        <span className="text-cyan-400 text-xs pixel-text">OVERALL PROGRESS</span>
-        <span className="text-yellow-400 text-xs pixel-text">
-          {completedCount + currentCount}/{totalStages} COMPLETE
-        </span>
+    <div className="progress-container" data-aos="slide-up" data-aos-duration="1000" data-aos-delay="600">
+      <div className="progress-header">
+        <span className="progress-label">OVERALL PROGRESS</span>
+        <span className="progress-count" id="progressCount">0/0 COMPLETE</span>
       </div>
-      <div className="h-6 bg-gray-700 border-2 border-gray-600 relative overflow-hidden">
-        <div
-          className="h-full bg-gradient-to-r from-green-400 to-yellow-400 transition-all duration-1000 ease-out"
-          style={{ width: `${progressWidth}%` }}
-        ></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-pulse"></div>
+      <div className="progress-bar">
+        <div className="progress-fill" id="progressFill"></div>
+        <div className="progress-shine"></div>
       </div>
     </div>
   )
 }
+
+export default ProgressBar
