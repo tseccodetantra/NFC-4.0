@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+:root {
+  --comet-neon: #00eaff;
+}
+
+body,
+.home-canvas,
+.comet-svg,
+.home-title-splash,
+.hud-text,
+.pixel-art {
+  font-family: "Press Start 2P", "Courier New", Courier, monospace !important;
+}
+
+.comet-svg path,
+.comet-svg ellipse,
+.comet-svg polygon,
+.comet-svg rect {
+  fill: var(--comet-neon) !important;
+  stroke: var(--comet-neon) !important;
+}
+.canvas-box {
+  margin-top: 180px;
+}

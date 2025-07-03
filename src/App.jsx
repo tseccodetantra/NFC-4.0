@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./components/Home/Home";
 import AboutUs from "./components/About Us/AboutUs";
@@ -8,7 +8,7 @@ import Domain from "./components/Domains/Domain";
 import Roadmap from "./components/Roadmap/Roadmap";
 import FAQ from "./components/FAQ/FAQ";
 import Footer from "./components/FAQ/FAQfooterUI/Footer";
-import Sponsors from './components/Sponsors/SponsorsSection';
+import Sponsors from "./components/Sponsors/SponsorsSection";
 import Preloader from "./components/Preloader/Preloader";
 
 function App() {
@@ -29,7 +29,9 @@ function App() {
       ) : (
         <div className="App">
           <Navbar />
-          <Home />
+          <div id="home" style={{ marginTop: "-180px", paddingTop: "180px" }}>
+            <Home />
+          </div>
           <AboutUs />
           <Domain />
           <Roadmap />
