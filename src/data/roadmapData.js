@@ -1,48 +1,62 @@
-export const roadmapData = [
+// File: /src/data/roadmapData.js
+
+const roadmapData = [
   {
-    id: "1",
-    level: "Beginner",
-    title: "HTML Basics",
-    completed: false,
-    steps: [
-      { title: "Tags", done: false },
-      { title: "Attributes", done: false }
-    ]
-  },
-  {
-    id: "2",
-    level: "Intermediate",
-    title: "CSS Styling",
-    completed: false,
-    steps: [
-      { title: "Selectors", done: false },
-      { title: "Flexbox", done: false }
-    ]
-  }
-]
-export const roadmapStages = [
-  {
-    id: "1",
-    title: "Stage 1: HTML Basics",
-    description: "Learn the fundamentals of HTML, including tags and attributes.",
-    time: "Week 1",
+    id: 1,
+    title: "Team Formation",
+    status: "current",
+    time: "Pre-Event",
+    description: "Find your squad and get ready to hack",
     xp: 100,
-    status: "completed"
   },
   {
-    id: "2",
-    title: "Stage 2: CSS Styling",
-    description: "Master CSS styling techniques like selectors and Flexbox.",
-    time: "Week 2",
-    xp: 150,
-    status: "current"
+    id: 2,
+    title: "Problem Release",
+    status: "locked",
+    time: "Day 0 - 11:00 PM",
+    description: "Problem statements revealed",
+    xp: 50,
   },
   {
-    id: "3",
-    title: "Stage 3: JavaScript Essentials",
-    description: "Dive into JavaScript basics, including variables and functions.",
-    time: "Week 3",
+    id: 3,
+    title: "Ideation Sprint",
+    status: "locked",
+    time: "Hour 0 - 9:00 AM",
+    description: "Brainstorm and finalize your approach",
+    xp: 250,
+  },
+  {
+    id: 4,
+    title: "Development Phase",
+    status: "locked",
+    time: "Hour 2 - 11:00 AM",
+    description: "Code like there's no tomorrow",
+    xp: 500,
+  },
+  {
+    id: 5,
+    title: "Testing & Polish",
+    status: "locked",
+    time: "Hour 20 - 5:00 AM",
+    description: "Debug and perfect your solution",
+    xp: 300,
+  },
+  {
+    id: 6,
+    title: "Final Submission",
+    status: "locked",
+    time: "Hour 23 - 8:00 AM",
+    description: "Submit before the deadline",
     xp: 200,
-    status: "locked"
-  }
-]
+  },
+  {
+    id: 7,
+    title: "Demo & Judging",
+    status: "locked",
+    time: "Hour 24 - 9:00 AM",
+    description: "Present your masterpiece",
+    xp: 1000,
+  },
+];
+
+export default roadmapData;

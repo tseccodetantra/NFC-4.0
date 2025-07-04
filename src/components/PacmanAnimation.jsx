@@ -1,36 +1,32 @@
-"use client"
+import React, { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
-import { useEffect, useState } from "react"
-
-export default function PacmanAnimation({ roadmapData }) {
-  const [animationStarted, setAnimationStarted] = useState(false)
-  const [targetPosition, setTargetPosition] = useState(0)
-
+const Pacman = ({ currentStageIndex, totalStages }) => {
   useEffect(() => {
-    const currentStageIndex = roadmapData.findIndex((stage) => stage.status === "current")
-    const targetPercentage = (currentStageIndex / (roadmapData.length - 1)) * 80
-    setTargetPosition(targetPercentage)
+    const pacmanContainer = document.getElementById('pacmanContainer');
+    if (!pacmanContainer) return;
 
-    setTimeout(() => {
-      setAnimationStarted(true)
-    }, 1000)
-  }, [roadmapData])
+    const targetPercentage = (currentStageIndex / (totalStages - 1)) * 80;
+    pacmanContainer.style.setProperty('--target-position', `${targetPercentage}%`);
+
+    AOS.refresh();
+  }, [currentStageIndex, totalStages]);
 
   return (
     <div
-      className={`absolute left-1/2 transform -translate-x-1/2 z-20 pointer-events-none transition-all duration-6000 ease-in-out ${
-        animationStarted ? "opacity-100" : "opacity-0"
-      }`}
-      style={{
-        top: animationStarted ? `${targetPosition}%` : "0%",
-      }}
+      className="pacman-container"
+      id="pacmanContainer"
+      data-aos="pacman-follow-line"
+      data-aos-delay="1000"
+      data-aos-duration="6000"
     >
-      <div className="transform rotate-90">
-        <div className="relative">
-          <div className="w-6 h-3 bg-yellow-400 rounded-t-full animate-pacman-top"></div>
-          <div className="w-6 h-3 bg-yellow-400 rounded-b-full animate-pacman-bottom"></div>
-        </div>
+      <div className="pacman">
+        <div className="pacman-top"></div>
+        <div className="pacman-bottom"></div>
       </div>
     </div>
-  )
-}
+  );
+};
+
+export default Pacman;

@@ -1,26 +1,4 @@
-import React, { useEffect } from 'react'
-import roadmapData from '../data/roadmapData'
-
-const TruckTrack = () => {
-  useEffect(() => {
-    const currentStageIndex = roadmapData.findIndex((stage) => stage.status === 'current')
-    const progressPercentage = (currentStageIndex / (roadmapData.length - 1)) * 85
-    const truck = document.getElementById('truckContainer')
-    setTimeout(() => {
-      if (truck) truck.style.left = `${progressPercentage}%`
-    }, 1000)
-  }, [])
-
-  useEffect(() => {
-    const stageMarkers = document.getElementById('stageMarkers')
-    roadmapData.forEach((stage, index) => {
-      const marker = document.createElement('div')
-      marker.className = `stage-marker ${stage.status}`
-      marker.style.left = `${(index / (roadmapData.length - 1)) * 100}%`
-      stageMarkers?.appendChild(marker)
-    })
-  }, [])
-
+function TruckTrack() {
   return (
     <div className="truck-track" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
       <div className="truck-container" id="truckContainer">
@@ -38,7 +16,5 @@ const TruckTrack = () => {
       </div>
       <div className="stage-markers" id="stageMarkers"></div>
     </div>
-  )
+  );
 }
-
-export default TruckTrack
