@@ -1,16 +1,23 @@
-function ProgressBar() {
+import React from "react";
+
+const ProgressBar = ({ percentage }) => {
   return (
-    <div className="progress-container" data-aos="slide-up" data-aos-duration="1000" data-aos-delay="600">
-      <div className="progress-header">
-        <span className="progress-label">OVERALL PROGRESS</span>
-        <span className="progress-count" id="progressCount">1/7 COMPLETE</span>
-      </div>
-      <div className="progress-bar">
-        <div className="progress-fill" id="progressFill"></div>
-        <div className="progress-shine"></div>
-      </div>
+    <div style={{
+      background: '#1e293b',
+      borderRadius: '10px',
+      overflow: 'hidden',
+      height: '16px',
+      marginBottom: '1.5rem',
+      border: '2px solid #22d3ee'
+    }}>
+      <div style={{
+        width: `${percentage}%`,
+        height: '100%',
+        background: '#4ade80',
+        transition: 'width 0.5s ease-in-out'
+      }}></div>
     </div>
   );
-}
+};
 
 export default ProgressBar;

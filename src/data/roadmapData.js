@@ -1,62 +1,11 @@
-// File: /src/data/roadmapData.js
-
 const roadmapData = [
-  {
-    id: 1,
-    title: "Team Formation",
-    status: "current",
-    time: "Pre-Event",
-    description: "Find your squad and get ready to hack",
-    xp: 100,
-  },
-  {
-    id: 2,
-    title: "Problem Release",
-    status: "locked",
-    time: "Day 0 - 11:00 PM",
-    description: "Problem statements revealed",
-    xp: 50,
-  },
-  {
-    id: 3,
-    title: "Ideation Sprint",
-    status: "locked",
-    time: "Hour 0 - 9:00 AM",
-    description: "Brainstorm and finalize your approach",
-    xp: 250,
-  },
-  {
-    id: 4,
-    title: "Development Phase",
-    status: "locked",
-    time: "Hour 2 - 11:00 AM",
-    description: "Code like there's no tomorrow",
-    xp: 500,
-  },
-  {
-    id: 5,
-    title: "Testing & Polish",
-    status: "locked",
-    time: "Hour 20 - 5:00 AM",
-    description: "Debug and perfect your solution",
-    xp: 300,
-  },
-  {
-    id: 6,
-    title: "Final Submission",
-    status: "locked",
-    time: "Hour 23 - 8:00 AM",
-    description: "Submit before the deadline",
-    xp: 200,
-  },
-  {
-    id: 7,
-    title: "Demo & Judging",
-    status: "locked",
-    time: "Hour 24 - 9:00 AM",
-    description: "Present your masterpiece",
-    xp: 1000,
-  },
+  { id: 1, title: "Team Formation", status: "current", xp: 100 },
+  { id: 2, title: "Problem Release", status: "locked", xp: 50 },
+  { id: 3, title: "Ideation Sprint", status: "locked", xp: 250 },
+  { id: 4, title: "Development Phase", status: "locked", xp: 500 },
+  { id: 5, title: "Testing & Polish", status: "locked", xp: 300 },
+  { id: 6, title: "Final Submission", status: "locked", xp: 200 },
+  { id: 7, title: "Demo & Judging", status: "locked", xp: 1000 }
 ];
 
 export default roadmapData;

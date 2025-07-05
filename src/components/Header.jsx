@@ -1,12 +1,15 @@
-import React from 'react'
+// src/components/Header.jsx
+import React from "react";
 
-const Header = () => {
-  return (
-    <div className="header" data-aos="fade-down" data-aos-duration="1000">
-      <h1 className="main-title">🎮 HACKATHON QUEST 2024 🎮</h1>
-      <p className="subtitle">Choose your UI adventure!</p>
-    </div>
-  )
-}
+const Header = () => (
+  <div className="flex flex-col items-center mb-6 text-center">
+    <h1 className="text-2xl sm:text-4xl text-white font-press-start">
+      NEED FOR CODE 4.0
+    </h1>
+    <p className="text-sm text-purple-200 mt-2 font-press-start">
+      Choose your adventure!
+    </p>
+  </div>
+);
 
-export default Header
+export default Header;
