@@ -28,9 +28,8 @@ function Navbar() {
     { text: "About Us", href: "#about" },
     { text: "Domain", href: "#domain" },
     { text: "Roadmap", href: "#roadmap" },
+    { text: "Sponsors", href: "#sponsors" },
     { text: "FAQ", href: "#faq" },
-    { text: "Sponsors", href: "#faq" },
-    { text: "NFC-3.0", href: "#faq" },
   ];
 
   const spriteWidth = 21;

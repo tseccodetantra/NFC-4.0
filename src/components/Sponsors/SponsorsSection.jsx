@@ -1,7 +1,6 @@
-
-import ScrollReveal from "./ScrollReveal"
-import SimpleSponsorCard from "./SimpleSponsorCard"
-import { motion } from "framer-motion"
+import ScrollReveal from "./ScrollReveal";
+import SimpleSponsorCard from "./SimpleSponsorCard";
+import { motion } from "framer-motion";
 // import "./Sponsors.css";
 
 // Sample sponsors data - replace with your own
@@ -37,7 +36,13 @@ const defaultSponsorsData = [
     industry: "Enterprise Technology",
     employees: "15,000+",
     founded: "2010",
-    specialties: ["Enterprise Software", "Cloud Computing", "AI Solutions", "DevOps", "Data Analytics"],
+    specialties: [
+      "Enterprise Software",
+      "Cloud Computing",
+      "AI Solutions",
+      "DevOps",
+      "Data Analytics",
+    ],
     socialLinks: {
       twitter: "https://twitter.com/innovatecorp",
       linkedin: "https://linkedin.com/company/innovatecorp",
@@ -53,7 +58,13 @@ const defaultSponsorsData = [
     industry: "Game Development",
     employees: "800+",
     founded: "2015",
-    specialties: ["Mobile Games", "Web Games", "Unity Development", "Unreal Engine", "Game Design"],
+    specialties: [
+      "Mobile Games",
+      "Web Games",
+      "Unity Development",
+      "Unreal Engine",
+      "Game Design",
+    ],
     socialLinks: {
       twitter: "https://twitter.com/gamedevstudios",
       linkedin: "https://linkedin.com/company/gamedevstudios",
@@ -68,7 +79,13 @@ const defaultSponsorsData = [
     industry: "Cloud Services",
     employees: "3,000+",
     founded: "2012",
-    specialties: ["AWS", "Azure", "Google Cloud", "Kubernetes", "Microservices"],
+    specialties: [
+      "AWS",
+      "Azure",
+      "Google Cloud",
+      "Kubernetes",
+      "Microservices",
+    ],
     socialLinks: {
       linkedin: "https://linkedin.com/company/cloudtech",
       github: "https://github.com/cloudtech",
@@ -83,7 +100,13 @@ const defaultSponsorsData = [
     industry: "Digital Design",
     employees: "200+",
     founded: "2018",
-    specialties: ["UI/UX Design", "Branding", "Web Design", "Mobile Design", "Prototyping"],
+    specialties: [
+      "UI/UX Design",
+      "Branding",
+      "Web Design",
+      "Mobile Design",
+      "Prototyping",
+    ],
     socialLinks: {
       twitter: "https://twitter.com/pixelcraft",
       linkedin: "https://linkedin.com/company/pixelcraft",
@@ -98,7 +121,13 @@ const defaultSponsorsData = [
     industry: "Consumer Electronics",
     employees: "150+",
     founded: "2019",
-    specialties: ["Retro Computing", "Electronics", "Product Design", "Manufacturing", "IoT"],
+    specialties: [
+      "Retro Computing",
+      "Electronics",
+      "Product Design",
+      "Manufacturing",
+      "IoT",
+    ],
     socialLinks: {
       linkedin: "https://linkedin.com/company/retrotech",
       github: "https://github.com/retrotech",
@@ -113,13 +142,19 @@ const defaultSponsorsData = [
     industry: "Consumer Electronics",
     employees: "150+",
     founded: "2019",
-    specialties: ["Retro Computing", "Electronics", "Product Design", "Manufacturing", "IoT"],
+    specialties: [
+      "Retro Computing",
+      "Electronics",
+      "Product Design",
+      "Manufacturing",
+      "IoT",
+    ],
     socialLinks: {
       linkedin: "https://linkedin.com/company/retrotech",
       github: "https://github.com/retrotech",
     },
   },
-   {
+  {
     name: "RetroTech Labs",
     imageUrl: "https://via.placeholder.com/100x100/9ca3af/000000?text=RT",
     website: "https://retrotech.com",
@@ -128,13 +163,19 @@ const defaultSponsorsData = [
     industry: "Consumer Electronics",
     employees: "150+",
     founded: "2019",
-    specialties: ["Retro Computing", "Electronics", "Product Design", "Manufacturing", "IoT"],
+    specialties: [
+      "Retro Computing",
+      "Electronics",
+      "Product Design",
+      "Manufacturing",
+      "IoT",
+    ],
     socialLinks: {
       linkedin: "https://linkedin.com/company/retrotech",
       github: "https://github.com/retrotech",
     },
   },
-   {
+  {
     name: "RetroTech Labs",
     imageUrl: "https://via.placeholder.com/100x100/9ca3af/000000?text=RT",
     website: "https://retrotech.com",
@@ -143,14 +184,19 @@ const defaultSponsorsData = [
     industry: "Consumer Electronics",
     employees: "150+",
     founded: "2019",
-    specialties: ["Retro Computing", "Electronics", "Product Design", "Manufacturing", "IoT"],
+    specialties: [
+      "Retro Computing",
+      "Electronics",
+      "Product Design",
+      "Manufacturing",
+      "IoT",
+    ],
     socialLinks: {
       linkedin: "https://linkedin.com/company/retrotech",
       github: "https://github.com/retrotech",
     },
   },
-  
-]
+];
 
 const Sponsors = ({
   title = " Our Sponsors",
@@ -161,10 +207,13 @@ const Sponsors = ({
   backgroundColor = "bg-purple",
   className = "",
 }) => {
-  const sponsors = customSponsors || defaultSponsorsData
+  const sponsors = customSponsors || defaultSponsorsData;
 
   return (
-    <section className={`py-20 px-4 ${backgroundColor} relative overflow-hidden ${className}`}>
+    <section
+      className={`py-20 px-4 ${backgroundColor} relative overflow-hidden ${className}`}
+      id="sponsors"
+    >
       <div className="max-w-7xl mx-auto relative z-10">
         <ScrollReveal>
           <motion.div
@@ -173,8 +222,9 @@ const Sponsors = ({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            
-            <h2 className="text-5xl md:text-6xl font-bold mb-6  pixel-font ">OUR <span className="text-yellow-400" >SPONSORS</span></h2>
+            <h2 className="text-5xl md:text-6xl font-bold mb-6  pixel-font ">
+              OUR <span className="text-yellow-400">SPONSORS</span>
+            </h2>
             <motion.p
               className="text-xl text-gray-300 max-w-3xl mx-auto mb-8"
               initial={{ opacity: 0 }}
@@ -194,8 +244,16 @@ const Sponsors = ({
               >
                 {[
                   { label: "Sponsors", value: "25+", color: "text-cyan-400" },
-                  { label: "Prize Pool", value: "75K+", color: "text-green-400" },
-                  { label: "Participants", value: "500+", color: "text-purple-400" },
+                  {
+                    label: "Prize Pool",
+                    value: "75K+",
+                    color: "text-green-400",
+                  },
+                  {
+                    label: "Participants",
+                    value: "500+",
+                    color: "text-purple-400",
+                  },
                   { label: "Cities", value: "20+", color: "text-yellow-400" },
                 ].map((stat, index) => (
                   <motion.div
@@ -211,7 +269,9 @@ const Sponsors = ({
                       damping: 20,
                     }}
                   >
-                    <div className={`text-3xl font-bold ${stat.color}`}>{stat.value}</div>
+                    <div className={`text-3xl font-bold ${stat.color}`}>
+                      {stat.value}
+                    </div>
                     <div className="text-gray-400 text-sm">{stat.label}</div>
                   </motion.div>
                 ))}
@@ -232,7 +292,7 @@ const Sponsors = ({
         </ScrollReveal>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Sponsors
+export default Sponsors;

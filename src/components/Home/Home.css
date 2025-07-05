@@ -1,0 +1,194 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+:root {
+  --comet-neon: #00eaff;
+}
+
+/* Fonts */
+body,
+.home-canvas,
+.comet-svg,
+.home-title-splash,
+.hud-text,
+.pixel-art {
+  font-family: "Press Start 2P", "Courier New", Courier, monospace !important;
+}
+
+/* Comet SVG Styling */
+.comet-svg path,
+.comet-svg ellipse,
+.comet-svg polygon,
+.comet-svg rect {
+  fill: var(--comet-neon) !important;
+  stroke: var(--comet-neon) !important;
+}
+
+/* Canvas wrapper */
+#canvas-box {
+  scroll-margin-top: 180px;
+}
+
+/* Splash Flicker Text */
+.splash-text-flicker {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.5rem;
+  color: rgb(255, 225, 0) !important;
+  z-index: 20;
+  text-shadow: rgb(132, 3, 3) 0px 0px 5px, rgb(255, 225, 0) 0px 0px 10px,
+    rgb(255, 225, 0) 0px 0px 30px;
+  animation: flicker-animation 1.5s infinite alternate;
+}
+
+.flicker {
+  animation: flickerOpacity 6s infinite, flickerGlow 2 infinite alternate;
+}
+
+/* Mobile Home Styling */
+.mobile-home {
+  background: #0a0a0a;
+  color: #ffee58;
+  border: 4px solid #ffee58;
+  border-radius: 12px;
+  padding: 40px 20px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 12px #ffee58;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.02) 0px,
+    rgba(255, 255, 255, 0.02) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+  animation: crtScanlines 0.2s linear infinite;
+}
+
+.mobile-home .splash-text-flicker {
+  font-size: 1.4rem;
+  color: #ff3cac;
+  text-shadow: 0 0 4px #ff3cac, 0 0 8px #fff;
+  animation: flickerGlow 2s infinite alternate;
+}
+
+.mobile-home-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 20px;
+  background-color: #0a0a0a;
+  min-height: 40vh;
+  box-shadow: inset 0 0 12px #00eaff;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.02) 0px,
+    rgba(255, 255, 255, 0.02) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+  animation: crtScanlines 0.2s linear infinite;
+}
+
+.mobile-home-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  text-align: center;
+}
+
+.mobile-title {
+  font-size: 1.5rem;
+  color: #ffcc00;
+  font-family: "Press Start 2P", monospace;
+  text-shadow: 0 0 5px #ffcc00, 0 0 15px #ff0044;
+  animation: flickerGlow 2s infinite alternate;
+}
+
+/* Coin Text */
+.insert-coin {
+  font-size: 0.75rem;
+  color: #00eaff;
+  margin-top: 20px;
+  animation: blink 1s infinite;
+  font-family: "Press Start 2P", monospace;
+}
+
+/* Retro Button */
+.retro-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: "Press Start 2P", monospace;
+  font-size: 1rem;
+  padding: 14px 26px;
+  background-color: #00eaff;
+  border: 2px solid #fff;
+  border-radius: 8px;
+  color: #000;
+  cursor: pointer;
+  box-shadow: 0 0 12px #00eaff;
+  text-shadow: 0 0 3px #fff;
+  transition: transform 0.2s ease;
+  overflow: hidden;
+}
+
+.retro-button:hover {
+  transform: scale(1.05);
+}
+
+/* Coin Slot SVG Styling */
+.coin-slot {
+  height: 100%;
+  width: auto;
+}
+
+/* Animations */
+@keyframes flickerOpacity {
+  0%,
+  67%,
+  71%,
+  100% {
+    opacity: 1;
+  }
+  68% {
+    opacity: 0.8;
+  }
+  70% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes flickerGlow {
+  0% {
+    filter: brightness(1);
+  }
+  100% {
+    filter: brightness(1.4);
+  }
+}
+
+@keyframes crtScanlines {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 4px;
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+

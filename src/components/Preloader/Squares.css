@@ -1,10 +1,11 @@
 body {
   margin: 0;
   background: linear-gradient(135deg, #0a0a0a 0%, #1a0a1a 50%, #0a1a1a 100%);
-  font-family: "Press Start 2P", "Courier New", "Monaco", "Menlo", "Consolas", monospace;
+  font-family: "Press Start 2P", "Courier New", "Monaco", "Menlo", "Consolas",
+    monospace;
   color: #0ff;
   text-align: center;
-  overflow: hidden;
+  overflow-x: hidden;
   min-height: 100vh;
 }
 
@@ -43,7 +44,7 @@ body::after {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  overflow: hidden;
+  /* overflow: hidden; */
   --block-size: min(4vw, 30px);
   --gap-size: max(1px, 0.2vw);
   --board-padding: max(5px, 1vw);
@@ -80,8 +81,7 @@ body::after {
   height: 2px;
   background: rgba(0, 255, 255, 0.6);
   border-radius: 50%;
-  box-shadow:
-    25px 18px 0 0 rgba(0, 255, 255, 0.6),
+  box-shadow: 25px 18px 0 0 rgba(0, 255, 255, 0.6),
     50px 35px 0 0 rgba(255, 0, 255, 0.6), 75px 10px 0 0 rgba(255, 255, 0, 0.6),
     100px 25px 0 0 rgba(0, 255, 255, 0.6), 125px 40px 0 0 rgba(255, 0, 255, 0.6),
     150px 15px 0 0 rgba(255, 255, 0, 0.6), 200px 30px 0 0 rgba(0, 255, 255, 0.6),
@@ -91,10 +91,12 @@ body::after {
     550px 15px 0 0 rgba(255, 0, 255, 0.6), 600px 30px 0 0 rgba(255, 255, 0, 0.6),
     25px 80px 0 0 rgba(0, 255, 255, 0.6), 75px 95px 0 0 rgba(255, 0, 255, 0.6),
     125px 70px 0 0 rgba(255, 255, 0, 0.6), 175px 85px 0 0 rgba(0, 255, 255, 0.6),
-    225px 100px 0 0 rgba(255, 0, 255, 0.6), 275px 75px 0 0 rgba(255, 255, 0, 0.6),
-    325px 90px 0 0 rgba(0, 255, 255, 0.6), 375px 105px 0 0 rgba(255, 0, 255, 0.6),
+    225px 100px 0 0 rgba(255, 0, 255, 0.6),
+    275px 75px 0 0 rgba(255, 255, 0, 0.6), 325px 90px 0 0 rgba(0, 255, 255, 0.6),
+    375px 105px 0 0 rgba(255, 0, 255, 0.6),
     425px 80px 0 0 rgba(255, 255, 0, 0.6), 475px 95px 0 0 rgba(0, 255, 255, 0.6),
-    525px 110px 0 0 rgba(255, 0, 255, 0.6), 575px 85px 0 0 rgba(255, 255, 0, 0.6);
+    525px 110px 0 0 rgba(255, 0, 255, 0.6),
+    575px 85px 0 0 rgba(255, 255, 0, 0.6);
   animation: twinkle 3s ease-in-out infinite alternate;
   pointer-events: none;
   z-index: 1;
@@ -122,7 +124,8 @@ body::after {
   border: max(2px, 0.3vw) solid rgba(0, 255, 255, 0.7);
   background: rgba(17, 17, 17, 0.9);
   backdrop-filter: blur(5px);
-  box-shadow: 0 0 max(8px, 1.5vw) rgba(0, 255, 255, 0.5), inset 0 0 max(15px, 2.5vw) rgba(0, 255, 255, 0.08);
+  box-shadow: 0 0 max(8px, 1.5vw) rgba(0, 255, 255, 0.5),
+    inset 0 0 max(15px, 2.5vw) rgba(0, 255, 255, 0.08);
   border-radius: max(5px, 1vw);
   max-width: 98vw;
   overflow-x: auto;
@@ -143,7 +146,8 @@ body::after {
   border: max(2px, 0.3vw) solid rgba(0, 255, 255, 0.7);
   background: rgba(17, 17, 17, 0.9);
   backdrop-filter: blur(5px);
-  box-shadow: 0 0 max(8px, 1.5vw) rgba(0, 255, 255, 0.5), inset 0 0 max(15px, 2.5vw) rgba(0, 255, 255, 0.08);
+  box-shadow: 0 0 max(8px, 1.5vw) rgba(0, 255, 255, 0.5),
+    inset 0 0 max(15px, 2.5vw) rgba(0, 255, 255, 0.08);
   border-radius: max(5px, 1vw);
   max-width: 98vw;
   transition: all 1s ease-in-out;
@@ -163,15 +167,17 @@ body::after {
 .tetris-container.complete .loader-single-line,
 .tetris-container.complete .loader-multi-line {
   border-color: #cc6699;
-  box-shadow: 0 0 max(20px, 3vw) #cc6699, 0 0 max(40px, 6vw) rgba(204, 102, 153, 0.4), 0 0 max(60px, 9vw)
-    rgba(204, 102, 153, 0.2), inset 0 0 max(25px, 4vw) rgba(204, 102, 153, 0.15);
+  box-shadow: 0 0 max(20px, 3vw) #cc6699,
+    0 0 max(40px, 6vw) rgba(204, 102, 153, 0.4),
+    0 0 max(60px, 9vw) rgba(204, 102, 153, 0.2),
+    inset 0 0 max(25px, 4vw) rgba(204, 102, 153, 0.15);
   animation: completion-pulse 0.1s ease-in-out 0.8s 1 forwards;
   transition: all 0.5s ease-in-out 0.5s;
 }
 .tetris-container.complete .loader-single-line,
 .tetris-container.complete .loader-multi-line {
   animation: completion-pulse 0.3s ease-in-out 0.5s 1 forwards,
-             fade-glow-out 1s ease-in-out 1s forwards;
+    fade-glow-out 1s ease-in-out 1s forwards;
 }
 
 @keyframes fade-glow-out {
@@ -184,22 +190,24 @@ body::after {
   }
 
   100% {
-    box-shadow: 0 0 0 rgba(204, 102, 153, 0),
-      0 0 0 rgba(204, 102, 153, 0),
-      0 0 0 rgba(204, 102, 153, 0),
-      inset 0 0 0 rgba(204, 102, 153, 0);
+    box-shadow: 0 0 0 rgba(204, 102, 153, 0), 0 0 0 rgba(204, 102, 153, 0),
+      0 0 0 rgba(204, 102, 153, 0), inset 0 0 0 rgba(204, 102, 153, 0);
     border-color: rgba(204, 102, 153, 0.2);
   }
 }
 
 @keyframes completion-pulse {
   0% {
-    box-shadow: 0 0 max(20px, 3vw) #cc6699, 0 0 max(40px, 6vw) rgba(204, 102, 153, 0.4), 0 0 max(60px, 9vw)
-      rgba(204, 102, 153, 0.2), inset 0 0 max(25px, 4vw) rgba(204, 102, 153, 0.15);
+    box-shadow: 0 0 max(20px, 3vw) #cc6699,
+      0 0 max(40px, 6vw) rgba(204, 102, 153, 0.4),
+      0 0 max(60px, 9vw) rgba(204, 102, 153, 0.2),
+      inset 0 0 max(25px, 4vw) rgba(204, 102, 153, 0.15);
   }
   100% {
-    box-shadow: 0 0 max(30px, 4.5vw) #cc6699, 0 0 max(60px, 9vw) rgba(204, 102, 153, 0.6), 0 0 max(90px, 13.5vw)
-      rgba(204, 102, 153, 0.3), inset 0 0 max(35px, 5.5vw) rgba(204, 102, 153, 0.2);
+    box-shadow: 0 0 max(30px, 4.5vw) #cc6699,
+      0 0 max(60px, 9vw) rgba(204, 102, 153, 0.6),
+      0 0 max(90px, 13.5vw) rgba(204, 102, 153, 0.3),
+      inset 0 0 max(35px, 5.5vw) rgba(204, 102, 153, 0.2);
   }
 }
 
@@ -218,7 +226,7 @@ body::after {
   border-radius: clamp(0.5px, 0.1vw, 1px);
   transform: translateY(calc(-200px - 10vw));
   opacity: 1;
-  animation: fall-block-unit 1.0s ease-in-out forwards;
+  animation: fall-block-unit 1s ease-in-out forwards;
   filter: drop-shadow(0 0 max(3px, 0.6vw) transparent);
 }
 
