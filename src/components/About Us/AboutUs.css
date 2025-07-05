@@ -94,7 +94,7 @@
     0 8px 32px 0 #000a;
   min-width: 240px;
   max-width: 320px;
-  flex: 1 1 260px;
+  flex: 1 1;
   padding: 24px 18px 18px 18px;
   margin: 0 0 12px 0;
   position: relative;

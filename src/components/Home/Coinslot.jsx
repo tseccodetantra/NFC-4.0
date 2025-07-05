@@ -2,24 +2,25 @@ import React from "react";
 
 export default function Coinslot({ className = "" }) {
   return (
-    <svg
-      className={className}
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="418 39.5 700 700"
-      preserveAspectRatio="xMidYMid meet"
+    <div
+      style={{
+        position: "relative",
+        width: "24px",
+        height: "24px",
+        display: "inline-block",
+        overflow: "visible",
+      }}
     >
-      <g id="document">
-        <rect
-          x="418"
-          y="28.21429"
-          transform="scale(1,1.4)"
-          width="700"
-          height="500"
-          fill="currentColor"
-          stroke="currentColor"
-        />
-      </g>
-      <g id="stage">
+      <svg
+        className={className}
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="700 200 120 400"
+        preserveAspectRatio="xMidYMid meet"
+        style={{
+          width: "100%",
+          height: "100%",
+        }}
+      >
         <g id="layer1">
           <path
             d="M708,549.5v-320h100v320z"
@@ -34,7 +35,7 @@ export default function Coinslot({ className = "" }) {
             stroke="currentColor"
           />
         </g>
-      </g>
-    </svg>
+      </svg>
+    </div>
   );
 }

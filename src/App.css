@@ -4,16 +4,18 @@ body {
   font-family: "Segoe UI", Arial, sans-serif;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
-
+html {
+  overflow-x: hidden;
+}
 section {
   border-radius: 12px;
   margin: 32px auto;
-  
+
   padding: 80px 32px 64px 32px;
   transition: background 0.3s, color 0.3s;
 }
-
 
 @media (max-width: 700px) {
   section {
@@ -29,5 +31,5 @@ section {
 .tetris-preloader-fade {
   opacity: 0;
   pointer-events: none;
-  transition: opacity 1.2s cubic-bezier(0.4,0,0.2,1);
+  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
