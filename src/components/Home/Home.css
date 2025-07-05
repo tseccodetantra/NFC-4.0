@@ -144,10 +144,8 @@ body,
 
 /* Coin Slot SVG Styling */
 .coin-slot {
-  height: 1em;
+  height: 100%;
   width: auto;
-  fill: rgba(255, 255, 255, 0.2);
-  stroke: rgba(255, 255, 255, 1);
 }
 
 /* Animations */
@@ -193,3 +191,4 @@ body,
     opacity: 0;
   }
 }
+

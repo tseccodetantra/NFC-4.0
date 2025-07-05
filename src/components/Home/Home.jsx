@@ -229,7 +229,7 @@ function Home() {
         } else {
           setTimeout(() => {
             window.location.href = "https://example.com/register";
-          }, 50);
+          }, 1);
         }
       }
       animateProjectile();

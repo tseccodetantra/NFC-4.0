@@ -29,7 +29,7 @@ function App() {
       ) : (
         <div className="App">
           <Navbar />
-          <div id="home" style={{ marginTop: "-180px", paddingTop: "180px" }}>
+          <div id="home" style={{ scrollMarginTop: "175px" }}>
             <Home />
           </div>
           <AboutUs />
