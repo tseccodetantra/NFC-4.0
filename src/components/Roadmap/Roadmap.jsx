@@ -93,17 +93,17 @@ function Roadmap() {
           </h1>
 
           {/* DAY 1 SECTION */}
-          <h2 className="text-2xl text-center sm:mr-16 sm:text-left w-screen max-w-3xl text-[#77F1FF] py-0 sm:py-5 press-start-2p-regular animate-bounce">
+          <h2 className="text-2xl text-center lg:mr-16 lg:text-left landscape:md:mr-72 w-screen max-w-3xl text-[#77F1FF] py-0 sm:py-5 press-start-2p-regular animate-bounce">
             DAY - 1
           </h2>
           <div className="relative mb-2 sm:mb-20" ref={day1SectionRef}>
             {/* Vertical Line */}
             <div
-              className="w-1 mb-20 bg-[#DC53E6] absolute top-5 sm:top-0 left-0 sm:left-1/2 transform sm:-translate-x-1/2 z-10 vertical-line-glow animate-pulse"
+              className="w-1 mb-20 bg-[#DC53E6] absolute top-5 lg:top-0 left-0 lg:left-1/2 landscape:md:left-1/2 transform lg:-translate-x-1/2 z-10 vertical-line-glow animate-pulse"
               style={{
                 height:
                   window.innerWidth < 640
-                    ? `${day1Events.length * 170}px`
+                    ? `${day1Events.length * 168}px`
                     : `${day1Events.length * 260}px`,
               }}
             ></div>
@@ -111,7 +111,7 @@ function Roadmap() {
             {/* GSAP Controlled Pacman */}
             <div
               ref={day1PacmanRef}
-              className="pacman-scroll hidden sm:block"
+              className="pacman-scroll hidden lg:block"
             ></div>
 
             {day1Events.map((item, index) => (
@@ -126,7 +126,7 @@ function Roadmap() {
           </div>
 
           {/* DAY 2 SECTION */}
-          <h2 className="text-2xl w-screen max-w-3xl text-center sm:ml-16 sm:text-right text-[#77F1FF] py-5 press-start-2p-regular animate-bounce">
+          <h2 className="text-2xl w-screen max-w-3xl text-center lg:ml-16 lg:text-right landscape:md:ml-72 text-[#77F1FF] py-5 press-start-2p-regular animate-bounce">
             DAY - 2
           </h2>
 
