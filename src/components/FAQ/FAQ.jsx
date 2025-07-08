@@ -51,7 +51,7 @@ const faqs = [
   const [selected, setSelected] = useState(-1);
 
   return (
-    <section id="faq" className="px-6 py-4 font-retro text-yellow-300 bg-purple faq-start">
+    <section id="faq" className="px-6 py-4 font-retro text-yellow-300 bg-purple faq-start desktop-scroll-margin">
       <h2 className="text-2xl md:text-3xl font-retro text-center mb-10 tracking-widest flex items-center justify-center gap-4 flex-wrap">
         <span className="inline-block">
           <img

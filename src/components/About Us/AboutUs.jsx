@@ -3,7 +3,7 @@ import "./AboutUs.css";
 
 function AboutUs() {
   return (
-    <section id="about" className="about-section">
+    <section id="about" className="about-section desktop-scroll-margin">
       <div className="about-title">
         <span>ABOUT US</span>
       </div>
