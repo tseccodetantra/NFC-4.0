@@ -93,7 +93,7 @@ function Roadmap() {
           </h1>
 
           {/* DAY 1 SECTION */}
-          <h2 className="text-2xl text-center lg:mr-16 lg:text-left landscape:md:mr-72 w-screen max-w-3xl text-[#77F1FF] py-0 sm:py-5 press-start-2p-regular animate-bounce">
+          <h2 className="text-2xl text-center landscape:lg:mr-0 lg:text-left landscape:md:mr-72 w-screen max-w-3xl text-[#77F1FF] py-0 sm:py-5 press-start-2p-regular animate-bounce">
             DAY - 1
           </h2>
           <div className="relative mb-2 sm:mb-20" ref={day1SectionRef}>
@@ -126,7 +126,7 @@ function Roadmap() {
           </div>
 
           {/* DAY 2 SECTION */}
-          <h2 className="text-2xl w-screen max-w-3xl text-center lg:ml-16 lg:text-right landscape:md:ml-72 text-[#77F1FF] py-5 press-start-2p-regular animate-bounce">
+          <h2 className="text-2xl w-screen max-w-3xl text-center lg:ml-16 lg:text-right landscape:lg:ml-0 landscape:md:ml-72 text-[#77F1FF] py-5 press-start-2p-regular animate-bounce">
             DAY - 2
           </h2>
 
