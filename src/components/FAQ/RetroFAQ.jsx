@@ -7,16 +7,16 @@ import MarioBox from "@/assets/mariobox.png"
 
 const faqs = [
   {
-    question: `When and where will "Need For Code 3.0" take place?`,
-    answer: "Zoom into action on 29th Aug 2024 at 10:00 AM! The coding chaos continues till 30th Aug at Thadomal Shahani Engineering College, Bandra, Mumbai!",
+    question: `When and where will "Need For Code 4.0" take place?`,
+    answer: "Zoom into action on 5th August 2025 at 10:00 AM! The coding chaos continues till 6th August at Thadomal Shahani Engineering College, Bandra, Mumbai!",
   },
   {
-    question: `Who can participate in "Need For Code 3.0"?`,
+    question: `Who can participate in "Need For Code 4.0"?`,
     answer: "Got the need for speed and code? All college students with a spark for tech and innovation are welcome to join the race!",
   },
   {
-    question: "How can I register for Need For Code 3.0 and is there a registration fee?",
-    answer: "Hit the boosters on Devfolio to register—no coins needed! It’s 100% free to dash in!",
+    question: "How can I register for Need For Code 4.0 and is there a registration fee?",
+    answer: "Hit the boosters on Unstop to register, no coins needed! It’s 100% free to dash in!",
   },
   {
     question: "Can I participate as an individual or do I need a team?",
@@ -32,17 +32,14 @@ const faqs = [
   },
   {
     question: "How many hours will the hackathon last?",
-    answer: "It’s a 24-hour warp zone! From 29th Aug 11:00 AM to 30th Aug 11:00 AM—non-stop coding frenzy!",
+    answer: "It’s a 24-hour warp zone! From 5th Aug 11:00 AM to 6th Aug 11:00 AM—non-stop coding frenzy!",
   },
   {
     question: "Is there any accommodation facility?",
     answer: "While we don't offer external stays, we’ve got you covered with comfy spaces during the hackathon hours!",
-  },
-  {
-    question: "I hate codetantra",
-    answer: "You’re not alone, buddy. Even Sonic couldn’t outrun that one.",
-  },
+  }
 ];
+
 
 
 export default function RetroFAQ() {
