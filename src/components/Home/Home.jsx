@@ -1,9 +1,13 @@
 import React, { useRef, useEffect, useState } from "react";
 import CometSVG from "./CometSVG";
 import ship1 from "../../assets/spaceships/ship1.png";
+import shootSound from "../../assets/sounds/shoot.mp3";
+import cometBreakSound from "../../assets/sounds/cometbreak.mp3";
+import kachinkSound from "../../assets/sounds/kachink.mp3";
 import "./home.css";
 import Coinslot from "./Coinslot";
-const TARGET_DATE = new Date("2025-08-05T00:00:00+05:30");
+
+const TARGET_DATE = new Date("2025-08-05T10:00:00+05:30");
 
 function getShipAngle(cursorX, cursorY, width, height) {
   const x0 = 8;
@@ -40,6 +44,20 @@ function Home() {
   const [shooting, setShooting] = useState(false);
   const [projectileProgress, setProjectileProgress] = useState(0);
   const animRef = useRef();
+  const [isBlinking, setIsBlinking] = useState(false);
+
+  const shootAudioRef = useRef(null);
+  const breakAudioRef = useRef(null);
+  const kachinkAudioRef = useRef(null);
+
+  useEffect(() => {
+    shootAudioRef.current = new Audio(shootSound);
+    breakAudioRef.current = new Audio(cometBreakSound);
+
+    const kachink = new Audio(kachinkSound);
+    kachink.load(); // preload into buffer
+    kachinkAudioRef.current = kachink;
+  }, []);
 
   useEffect(() => {
     function handleResize() {
@@ -128,11 +146,58 @@ function Home() {
 
     const shipW = 80;
     const shipH = 80;
-
     const x = 8;
     const y = canvas.height - shipH - 8;
     const shipCenter = { x: x + shipW / 2, y: y + shipH / 2 };
-    const cometTip = { x: canvas.width - 60, y: 60 };
+
+    const cometEl = document.querySelector(".comet-svg");
+    let cometTip = { x: canvas.width * 0.25, y: canvas.height * 0.75 };
+
+    if (cometEl) {
+      const cometRect = cometEl.getBoundingClientRect();
+      const canvasRect = canvas.getBoundingClientRect();
+      cometTip = {
+        x: cometRect.left + cometRect.width * 0.25 - canvasRect.left,
+        y: cometRect.top + cometRect.height * 0.75 - canvasRect.top,
+      };
+    }
+
+    const pad = (n) => String(n).padStart(2, "0");
+    const countdownText = `DAYS:${pad(countdown.days)}  HRS:${pad(
+      countdown.hours
+    )}  MIN:${pad(countdown.mins)}  SEC:${pad(countdown.secs)}`;
+
+    ctx.font = "16px 'Press Start 2P', monospace";
+    ctx.textBaseline = "bottom";
+    ctx.textAlign = "right";
+    ctx.fillStyle = "#00FF00";
+    ctx.shadowColor = "#00FF00";
+    ctx.shadowBlur = 0;
+
+    const margin = 12;
+    const textMetrics = ctx.measureText(countdownText);
+    const textHeight = 20;
+    const hudPadding = 12;
+    const hudWidth = textMetrics.width + hudPadding * 2;
+    const hudHeight = textHeight + hudPadding * 2;
+    const hudX = canvas.width - margin - hudWidth;
+    const hudY = canvas.height - margin - hudHeight;
+
+    ctx.fillStyle = "#111";
+    ctx.globalAlpha = 0.85;
+    ctx.fillRect(hudX, hudY, hudWidth, hudHeight);
+    ctx.globalAlpha = 1;
+
+    ctx.strokeStyle = "#00EAFF";
+    ctx.lineWidth = 2;
+    ctx.strokeRect(hudX, hudY, hudWidth, hudHeight);
+
+    ctx.fillStyle = "#00EAFF";
+    ctx.fillText(
+      countdownText,
+      hudX + hudWidth - hudPadding,
+      hudY + hudHeight - hudPadding
+    );
 
     ctx.save();
     ctx.translate(shipCenter.x, shipCenter.y);
@@ -153,57 +218,6 @@ function Home() {
       ctx.shadowBlur = 12;
       ctx.fill();
     }
-
-    ctx.save();
-    const hudPadding = 24;
-    const hudWidth = 420;
-    const hudHeight = 90;
-    const hudX = canvas.width - hudWidth - hudPadding;
-    const hudY = canvas.height - hudHeight - hudPadding;
-
-    ctx.globalAlpha = 0.85;
-    ctx.fillStyle = "#10182b";
-    ctx.shadowColor = "#00eaff";
-    ctx.shadowBlur = 24;
-    ctx.fillRect(hudX, hudY, hudWidth, hudHeight);
-    ctx.globalAlpha = 1;
-    ctx.shadowBlur = 0;
-    ctx.strokeStyle = "#00eaff";
-    ctx.lineWidth = 4;
-    ctx.shadowColor = "#00eaff";
-    ctx.shadowBlur = 16;
-    ctx.strokeRect(hudX, hudY, hudWidth, hudHeight);
-    ctx.shadowBlur = 0;
-
-    ctx.fillStyle = "#00eaff";
-    const px = 8;
-    ctx.fillRect(hudX, hudY, px, px * 2);
-    ctx.fillRect(hudX, hudY, px * 2, px);
-    ctx.fillRect(hudX + hudWidth - px, hudY, px, px * 2);
-    ctx.fillRect(hudX + hudWidth - px * 2, hudY, px * 2, px);
-    ctx.fillRect(hudX, hudY + hudHeight - px * 2, px, px * 2);
-    ctx.fillRect(hudX, hudY + hudHeight - px, px * 2, px);
-    ctx.fillRect(hudX + hudWidth - px, hudY + hudHeight - px * 2, px, px * 2);
-    ctx.fillRect(hudX + hudWidth - px * 2, hudY + hudHeight - px, px * 2, px);
-
-    ctx.font = `bold 18px 'Press Start 2P', monospace`;
-    ctx.fillStyle = "#00eaff";
-    ctx.textAlign = "left";
-    ctx.textBaseline = "top";
-    ctx.shadowColor = "#00eaff";
-    ctx.shadowBlur = 8;
-    ctx.fillText("COUNTDOWN", hudX + 20, hudY + 14);
-
-    ctx.font = `bold 22px 'Press Start 2P', monospace`;
-    ctx.shadowBlur = 0;
-    ctx.fillStyle = "#fff";
-    const { days, hours, mins, secs } = countdown;
-    ctx.fillText(
-      `${days}D  ${hours}H  ${mins}M  ${secs}S`,
-      hudX + 20,
-      hudY + 44
-    );
-    ctx.restore();
   }, [
     shipImg,
     shipAngle,
@@ -217,19 +231,40 @@ function Home() {
   function handleRegisterClick(e) {
     e.preventDefault();
     if (isMobile) {
-      window.location.href = "https://example.com/register";
+      const kachink = kachinkAudioRef.current;
+      if (kachink) {
+        kachink.currentTime = 0;
+        setIsBlinking(true);
+        kachink
+          .play()
+          .then(() => {
+            setTimeout(() => {
+              window.location.href = "https://example.com/register";
+              setIsBlinking(false);
+            }, kachink.duration * 1000);
+          })
+          .catch(() => {
+            setIsBlinking(false);
+            window.location.href = "https://example.com/register";
+          });
+      } else {
+        window.location.href = "https://example.com/register";
+      }
     } else {
+      shootAudioRef.current?.play();
       setShooting(true);
       let progress = 0;
+      setProjectileProgress(0);
       function animateProjectile() {
         progress += 0.025;
         setProjectileProgress(progress);
         if (progress < 1) {
           requestAnimationFrame(animateProjectile);
         } else {
+          breakAudioRef.current?.play();
           setTimeout(() => {
             window.location.href = "https://example.com/register";
-          }, 1);
+          }, 100);
         }
       }
       animateProjectile();
@@ -244,7 +279,9 @@ function Home() {
           <div className="insert-coin">INSERT COIN TO START</div>
           <button className="retro-button" onClick={handleRegisterClick}>
             <span className="button-text">REGISTER</span>
-            <Coinslot className="coin-slot" />
+            <Coinslot
+              className={`coin-slot ${isBlinking ? "blinking-slot" : ""}`}
+            />
           </button>
         </div>
       </section>
@@ -271,6 +308,7 @@ function Home() {
       >
         <div className="splash-text-flicker">NEED FOR CODE 4.0</div>
         <CometSVG
+          className="comet-svg"
           style={{
             position: "absolute",
             top: 0,

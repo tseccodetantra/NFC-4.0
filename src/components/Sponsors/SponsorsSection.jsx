@@ -212,7 +212,6 @@ const Sponsors = ({
   return (
     <section
       className={`py-20 px-4 ${backgroundColor} relative overflow-hidden ${className}`}
-      id="sponsors"
     >
       <div className="max-w-7xl mx-auto relative z-10">
         <ScrollReveal>

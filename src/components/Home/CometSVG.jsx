@@ -1,6 +1,6 @@
 import React from "react";
 
-const TARGET_DATE = new Date("2025-08-05T00:00:00+05:30");
+const TARGET_DATE = new Date("2025-08-05T10:00:00+05:30");
 
 export default function CometSVG({ color }) {
   // Use CSS variable if color not provided

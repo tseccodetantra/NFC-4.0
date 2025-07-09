@@ -6,6 +6,7 @@ import marioWalk from "../../assets/mario-walk.png";
 import brick from "../../assets/brick.png";
 //import brick from "../assets/BlackBrick.png";
 import MobileNavbar from "./MobileNavbar";
+import marioJumpAudio from "../../assets/sounds/mariojump.mp3";
 
 function Navbar() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -22,6 +23,22 @@ function Navbar() {
   const hasFlashedRef = useRef(false);
   const hasBumpedRef = useRef(false);
   const directionRef = useRef("left");
+
+  const audioContextRef = useRef(null);
+  const jumpBufferRef = useRef(null);
+
+  useEffect(() => {
+    audioContextRef.current = new (window.AudioContext ||
+      window.webkitAudioContext)();
+    fetch(marioJumpAudio)
+      .then((res) => res.arrayBuffer())
+      .then((arrayBuffer) =>
+        audioContextRef.current.decodeAudioData(arrayBuffer)
+      )
+      .then((decodedData) => {
+        jumpBufferRef.current = decodedData;
+      });
+  }, []);
 
   const links = [
     { text: "Home", href: "#home" },
@@ -287,6 +304,14 @@ function Navbar() {
             }}
             onClick={(e) => {
               e.preventDefault();
+
+              if (audioContextRef.current && jumpBufferRef.current) {
+                const source = audioContextRef.current.createBufferSource();
+                source.buffer = jumpBufferRef.current;
+                source.connect(audioContextRef.current.destination);
+                source.start();
+              }
+
               setHoveredIndex(index);
               handleClick(index, link.href);
             }}
