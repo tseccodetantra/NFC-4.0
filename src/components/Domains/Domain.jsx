@@ -60,6 +60,9 @@ function Domain() {
                   onClick={(e) => {
                     e.stopPropagation(); // Prevent card click
                     setSelectedCard(null);
+
+                    // Dispatch custom event for AOS refresh
+                    window.dispatchEvent(new CustomEvent('domainCardClosed'));
                   }}
                 >
                   ×

@@ -49,12 +49,13 @@ function Roadmap() {
           start: "top 10%",
           end: "bottom 99%",
           scrub: 1,
+          // refreshPriority: 1,
           onEnter: () => {
-            console.log("timeline enter");
+            // console.log("timeline enter");
             gsap.set(day1PacmanRef.current, { opacity: 1 });
           },
           onLeave: () => {
-            console.log("timeline leave");
+            // console.log("timeline leave");
             gsap.set(day1PacmanRef.current, { opacity: 0 });
           },
           onEnterBack: () => {
@@ -80,6 +81,53 @@ function Roadmap() {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
+
+  useEffect(() => {
+  const reinitializeAOS = () => {
+    // console.log("🔄 Reinitializing AOS due to layout change");
+    AOS.refresh();
+    ScrollTrigger.refresh();
+  };
+
+  // Listen for resize events
+  window.addEventListener('resize', reinitializeAOS);
+
+  // Listen for custom domain events
+  window.addEventListener('domainCardClosed', () => {
+    // console.log("✅ Domain card closed - refreshing AOS");
+    setTimeout(reinitializeAOS, 200);
+  });
+  
+  // Listen for any click on the page and check if it's a domain card
+  const handleClick = (e) => {
+    // console.log("🖱️ Click detected on:", e.target);
+    
+    // Check if the click is on or inside a domain card
+    if (e.target.closest('.card1') || 
+        e.target.closest('.theBox') || 
+        e.target.closest('.close-button') ||
+        e.target.classList.contains('card1') || 
+        e.target.classList.contains('theBox') ||
+        e.target.classList.contains('close-button')
+      ) {
+      // console.log("✅ Domain card clicked - refreshing AOS in 200ms");
+      setTimeout(reinitializeAOS, 200);
+    }
+  };
+
+  document.addEventListener('click', handleClick);
+  
+  // Initial refresh
+  const timeoutId = setTimeout(reinitializeAOS, 100);
+
+  return () => {
+    console.log("🧹 Cleaning up listeners");
+    window.removeEventListener('resize', reinitializeAOS);
+    window.removeEventListener('domainCardClosed', reinitializeAOS);
+    document.removeEventListener('click', handleClick);
+    clearTimeout(timeoutId);
+  };
+}, []);
 
   return (
     <>
