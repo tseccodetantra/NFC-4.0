@@ -6,6 +6,18 @@ body {
   padding: 0;
   overflow-x: hidden;
 }
+@font-face {
+  font-family: "Press Start 2P";
+  src: url("./assets/fonts/PressStart2P-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Segment7";
+  src: url("./assets/fonts/G7_Segment_7a.ttf") format("truetype");
+  font-display: swap;
+}
+
 html {
   overflow-x: hidden;
 }
@@ -15,6 +27,11 @@ section {
 
   padding: 80px 32px 64px 32px;
   transition: background 0.3s, color 0.3s;
+}
+@media (min-width: 768px) {
+  .desktop-scroll-margin {
+    scroll-margin-top: 180px;
+  }
 }
 
 @media (max-width: 700px) {

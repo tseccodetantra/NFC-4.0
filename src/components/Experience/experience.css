@@ -1,0 +1,643 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Mono:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+/* Global Pixelated Settings */
+* {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  box-sizing: border-box;
+}
+/* #experience
+{
+  scroll-margin-top:180px;
+} */
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+
+@keyframes statusPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes dotPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+/* ========================================
+   MAIN SECTION
+   ======================================== */
+
+.retro-tech-section {
+  /* background: linear-gradient(135deg,  #1b1552 100%); */
+  min-height: 100vh;
+  width: 100%;
+  padding: clamp(10px, 2vw, 20px);
+  font-family: "JetBrains Mono", "Courier New", monospace;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: clamp(20px, 4vw, 40px);
+  position: relative;
+}
+
+.screen-container {
+  background: #17173b;
+  border-radius: 15px;
+  position: relative;
+  min-height: clamp(60vh, 60vh, 65vh); /* previously 70–85vh */
+  max-width: 1100px;
+  width: 100%;
+  max-width: 1400px;
+  overflow: hidden;
+  border: 4px solid #00eaff;
+  
+ box-shadow:
+    0 0 8px rgba(0, 240, 255, 0.4),
+    0 0 16px rgba(0, 240, 255, 0.3),
+    0 0 32px rgba(0, 240, 255, 0.2),
+    0 0 64px rgba(0, 240, 255, 0.15);
+}
+
+.content-container {
+  padding: clamp(15px, 3vw, 30px);
+  position: relative;
+  z-index: 10;
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(20px, 4vw, 40px);
+}
+
+/* ========================================
+   HERO SECTION
+   ======================================== */
+
+.hero-section {
+  text-align: center;
+  margin-bottom: clamp(20px, 4vw, 40px);
+}
+
+.retro-title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(10px, 2vw, 20px);
+}
+
+.retro-title {
+  font-family: "Press Start 2P", monospace;
+  font-size: clamp(16px, 4vw, 32px);
+  color: #d3ef33;
+  text-shadow: 
+    2px 2px 0px #17173b, 
+    0 0 20px #27ded5,
+    0 0 40px #e873f0;
+  letter-spacing: clamp(1px, 0.2vw, 3px);
+  line-height: 1.3;
+  animation: glitch 3s infinite;
+}
+
+.system-status {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ========================================
+   SECTION HEADERS
+   ======================================== */
+
+.section-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: clamp(20px, 4vw, 30px);
+  padding: clamp(10px, 2vw, 15px) clamp(15px, 3vw, 20px);
+  background: linear-gradient(90deg, #241843, #1b1552, #241843);
+  border: 2px solid #1b1552;
+  border-radius: 8px;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.folder-icon {
+  font-size: clamp(24px, 4vw, 34px);
+  filter: drop-shadow(0 0 10px #e873f0);
+}
+
+.section-title {
+  font-size: clamp(12px, 2.5vw, 20px);
+  color: yellowgreen;
+  font-weight: bold;
+  text-shadow: 2px 2px 0px #17173b, 0 0 15px #27ded5;
+  letter-spacing: 1px;
+  flex: 1;
+  font-family: "Press Start 2P", monospace;
+  line-height: 1.2;
+  min-width: 150px;
+}
+
+.status-indicator {
+  color: #27ded5;
+  font-size: clamp(8px, 1.2vw, 12px);
+  font-weight: bold;
+  text-shadow: 0 0 10px #27ded5;
+  background: #17173b;
+  padding: clamp(3px, 0.5vw, 6px) clamp(6px, 1vw, 10px);
+  border: 1px solid #27ded5;
+  border-radius: 3px;
+  white-space: nowrap;
+  animation: statusPulse 2s infinite;
+}
+
+/* ========================================
+   TEAMS SECTION - ENHANCED AUTO CAROUSEL
+   ======================================== */
+
+.teams-section {
+  position: relative;
+  flex: 1;
+}
+
+.teams-carousel-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #1b1552, #241843);
+  border: 2px solid #27ded5;
+  box-shadow: 0 0 30px rgba(39, 222, 213, 0.2);
+  min-height: clamp(250px, 40vw, 300px);
+}
+
+.teams-carousel {
+  display: flex;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  gap: clamp(10px, 2vw, 20px);
+  padding: clamp(15px, 2vw, 30px);
+  height: 100%;
+}
+
+.team-card {
+  background: linear-gradient(135deg, #241843, #17173b);
+  border: 2px solid;
+  border-radius: 8px;
+  padding: clamp(8px, 1.5vw, 5px);
+  transition: all 0.5s ease;
+  cursor: pointer;
+  box-shadow: 
+    inset 0 0 15px rgba(255, 255, 255, 0.03), 
+    0 8px 25px rgba(0, 0, 0, 0.4);
+  flex-shrink: 0;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.team-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(39, 222, 213, 0.1), transparent);
+  transition: left 0.8s ease;
+}
+
+.team-card:hover::before {
+  left: 100%;
+}
+
+.team-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 
+    0 0 50px currentColor, 
+    inset 0 0 20px rgba(248, 245, 79, 0.899), 
+    0 15px 35px rgba(48, 221, 240, 0.36);
+}
+
+.project-image-container1 {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid currentColor;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  flex: 1;
+}
+
+.project-image1 {
+  width: 100%;
+  height: clamp(150px, 25vw, 500px);
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.team-card:hover .project-image1 {
+  transform: scale(1.05);
+}
+
+.image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+ 
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.team-card:hover .image-overlay {
+  transform: translateY(0);
+}
+
+.tech-stack-overlay {
+  color: #d3ef33;
+  font-size: clamp(10px, 1.5vw, 14px);
+  font-weight: bold;
+  text-shadow: 0 0 10px #d3ef33;
+  font-family: "Press Start 2P", monospace;
+  line-height: 1.2;
+}
+
+/* ========================================
+   CAROUSEL NAVIGATION
+   ======================================== */
+
+.carousel-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(39, 222, 213, 0.9);
+  color: #17173b;
+  border: none;
+  width: clamp(35px, 5vw, 50px);
+  height: clamp(35px, 5vw, 50px);
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: clamp(14px, 2vw, 20px);
+  font-weight: bold;
+  transition: all 0.3s ease;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 20px rgba(39, 222, 213, 0.5);
+}
+
+.carousel-nav:hover {
+  background: #27ded5;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 0 30px rgba(39, 222, 213, 0.8);
+}
+
+.carousel-nav.prev {
+  left: clamp(5px, 1vw, 10px);
+}
+
+.carousel-nav.next {
+  right: clamp(5px, 1vw, 10px);
+}
+
+.carousel-nav:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  transform: translateY(-50%) scale(0.9);
+}
+
+/* ========================================
+   PROGRESS INDICATORS
+   ======================================== */
+
+.carousel-progress {
+  display: flex;
+  justify-content: center;
+  gap: clamp(6px, 1vw, 10px);
+  padding: clamp(10px, 2vw, 15px);
+  background: rgba(23, 23, 59, 0.8);
+  border-top: 1px solid #27ded5;
+}
+
+.progress-dot {
+  width: clamp(10px, 1.5vw, 14px);
+  height: clamp(10px, 1.5vw, 14px);
+  border-radius: 50%;
+  background: rgba(39, 222, 213, 0.3);
+  border: 2px solid #27ded5;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.progress-dot.active {
+  background: #27ded5;
+  box-shadow: 0 0 15px #27ded5;
+  animation: dotPulse 2s infinite;
+}
+
+.progress-dot:hover {
+  background: rgba(39, 222, 213, 0.6);
+  transform: scale(1.2);
+}
+
+/* ========================================
+   FOOTER SECTION
+   ======================================== */
+
+.footer-section {
+  margin-top: auto;
+  padding-top: clamp(15px, 3vw, 20px);
+  border-top: 1px solid #27ded5;
+}
+
+.terminal-line {
+  font-family: "JetBrains Mono", monospace;
+  font-size: clamp(10px, 1.5vw, 14px);
+  color: #27ded5;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.prompt {
+  color: #d3ef33;
+  font-weight: bold;
+}
+
+.command {
+  color: #e873f0;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+/* Ultra-wide screens */
+@media (min-width: 1920px) {
+  .retro-tech-section {
+    padding: 40px;
+  }
+  
+  .screen-container {
+    max-width: 1600px;
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1200px) and (max-width: 1919px) {
+  .retro-tech-section {
+    padding: 30px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .section-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+  }
+  
+  .section-title {
+    min-width: auto;
+  }
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 991px) {
+  .retro-tech-section {
+    padding: 15px;
+  }
+  
+  .section-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .section-title {
+    min-width: auto;
+    text-align: center;
+  }
+  
+  .carousel-nav {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+  
+  .teams-carousel {
+    gap: 15px;
+    padding: 15px;
+  }
+}
+
+/* Mobile Large */
+@media (min-width: 481px) and (max-width: 767px) {
+  .retro-tech-section {
+    padding: 12px;
+  }
+  
+  .content-container {
+    gap: 20px;
+  }
+  
+  .carousel-nav {
+    width: 35px;
+    height: 35px;
+    font-size: 14px;
+  }
+  
+  .teams-carousel {
+    gap: 12px;
+    padding: 12px;
+  }
+  
+  .section-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    padding: 12px 15px;
+  }
+  .teams-carousel-container{
+  min-height: clamp(200px, 40vw, 500px);
+  }
+}
+
+/* Mobile Small */
+@media (max-width: 480px) {
+  .retro-tech-section {
+    padding: 8px;
+    padding-top: 15px;
+  }
+  
+  .teams-carousel-container{
+  min-height: clamp(200px, 40vw, 500px);
+  }
+
+  .screen-container {
+    border-width: 2px;
+    border-radius: 10px;
+  }
+  
+  .content-container {
+    padding: 12px;
+    gap: 15px;
+  }
+  
+  .section-header {
+   flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+    padding: 10px 12px;
+  }
+  
+  .carousel-nav {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+  }
+  
+  .carousel-nav.prev {
+    left: 3px;
+  }
+  
+  .carousel-nav.next {
+    right: 3px;
+  }
+  
+  .teams-carousel {
+    gap: 8px;
+    padding: 8px;
+  }
+  
+  .team-card {
+    padding: 6px;
+    min-width: calc(100vw - 72px);
+  }
+  .progress-dot {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .terminal-line {
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+/* Extra Small Mobile */
+@media (max-width: 320px) {
+  .retro-tech-section {
+    padding: 5px;
+    padding-top: 10px;
+  }
+  
+  .content-container {
+    padding: 8px;
+    gap: 12px;
+  }
+  
+  .section-header {
+    padding: 8px 10px;
+  }
+  
+  .carousel-nav {
+    width: 25px;
+    height: 25px;
+    font-size: 15px;
+  }
+  
+  .teams-carousel {
+    padding: 6px;
+  }
+  
+  .team-card {
+    min-width: calc(100vw-0px);
+  }
+  .teams-carousel-container{
+  min-height: clamp(100px, 40vw, 500px);
+  }
+}
+
+/* Landscape Mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .screen-container {
+    min-height: 85vh;
+  }
+  
+  .content-container {
+    gap: 15px;
+  }
+  
+  .hero-section {
+    margin-bottom: 15px;
+  }
+  
+  .teams-section {
+    margin-bottom: 15px;
+  }
+  
+  .project-image1 {
+    height: clamp(120px, 20vw, 180px);
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .retro-title,
+  .section-title,
+  .tech-stack-overlay {
+    text-rendering: optimizeLegibility;
+  }
+}
+
+
+/* Dark mode support */
+
+/* Print styles */
+@media print {
+  .retro-tech-section {
+    background: white;
+    color: black;
+    min-height: auto;
+  }
+  
+  .carousel-nav,
+  .progress-dot {
+    display: none;
+  }
+  
+  .teams-carousel {
+    transform: none !important;
+    flex-wrap: wrap;
+  }
+  
+  .team-card {
+    break-inside: avoid;
+    margin-bottom: 20px;
+  }
+}

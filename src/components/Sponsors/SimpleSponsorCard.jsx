@@ -1,9 +1,12 @@
-
-
-import { useState, useCallback } from "react"
-import { motion } from "framer-motion"
-import { ChevronDown, Twitter, Linkedin, Github, ExternalLink } from "lucide-react"
-
+import { useState, useCallback } from "react";
+import { motion } from "framer-motion";
+import {
+  ChevronDown,
+  Twitter,
+  Linkedin,
+  Github,
+  ExternalLink,
+} from "lucide-react";
 const SimpleSponsorCard = ({
   name,
   imageUrl,
@@ -15,16 +18,19 @@ const SimpleSponsorCard = ({
   specialties,
   socialLinks,
 }) => {
-  const [isHovered, setIsHovered] = useState(false)
-  const [isExpanded, setIsExpanded] = useState(false)
+  const [isHovered, setIsHovered] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
 
-  const handleHoverStart = useCallback(() => setIsHovered(true), [])
-  const handleHoverEnd = useCallback(() => setIsHovered(false), [])
-  const handleClick = useCallback(() => setIsExpanded(!isExpanded), [isExpanded])
+  const handleHoverStart = useCallback(() => setIsHovered(true), []);
+  const handleHoverEnd = useCallback(() => setIsHovered(false), []);
+  const handleClick = useCallback(
+    () => setIsExpanded(!isExpanded),
+    [isExpanded]
+  );
 
   return (
     <motion.div
-      className="relative cursor-pointer"
+      className="relative cursor-pointer "
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, ease: "easeOut" }}
@@ -57,7 +63,10 @@ const SimpleSponsorCard = ({
             <div className="flex items-center space-x-4">
               <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-cyan-400">
                 <img
-                  src={imageUrl || "https://via.placeholder.com/64x64/374151/ffffff?text=Logo"}
+                  src={
+                    imageUrl ||
+                    "https://via.placeholder.com/64x64/374151/ffffff?text=Logo"
+                  }
                   alt={name}
                   className="w-full h-full object-cover"
                 />
@@ -86,7 +95,9 @@ const SimpleSponsorCard = ({
           </div>
 
           {/* Description preview */}
-          <p className="text-gray-300 text-sm mb-4 line-clamp-2">{description}</p>
+          <p className="text-gray-300 text-sm mb-4 line-clamp-2">
+            {description}
+          </p>
 
           {/* Expandable content */}
           <motion.div
@@ -102,12 +113,16 @@ const SimpleSponsorCard = ({
               {/* Full description */}
               <div>
                 <h4 className="font-semibold mb-2 text-cyan-400">About</h4>
-                <p className="text-gray-300 text-sm leading-relaxed">{description}</p>
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  {description}
+                </p>
               </div>
 
               {/* Specialties */}
               <div>
-                <h4 className="font-semibold mb-2 text-cyan-400">Specialties</h4>
+                <h4 className="font-semibold mb-2 text-cyan-400">
+                  Specialties
+                </h4>
                 <div className="flex flex-wrap gap-2">
                   {specialties.map((specialty) => (
                     <span
@@ -180,7 +195,7 @@ const SimpleSponsorCard = ({
         </div>
       </motion.div>
     </motion.div>
-  )
-}
+  );
+};
 
-export default SimpleSponsorCard
+export default SimpleSponsorCard;

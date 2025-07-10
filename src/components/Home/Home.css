@@ -192,3 +192,48 @@ body,
   }
 }
 
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+}
+
+.blinking-slot {
+  animation: blink 0.3s steps(2, start) infinite;
+}
+.lcd-box-row {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.lcd-box {
+  background-color: #021102;
+  border: 2px solid #0aa;
+  border-radius: 0000px;
+  padding: 10px 12px;
+  width: 48px;
+  text-align: center;
+  box-shadow: 0 0 12px #0ab;
+}
+
+.lcd-num {
+  font-family: "Segment7", monospace;
+  font-size: 20px;
+  color: #00eaff;
+  text-shadow: 0 0 6px #0aa;
+  line-height: 1;
+}
+
+.lcd-label {
+  font-family: "Press Start 2P", monospace;
+  font-size: 15px;
+  color: #00eaff;
+  margin-top: 4px;
+  text-shadow: 0 0 2px #0ee;
+}

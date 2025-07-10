@@ -83,7 +83,7 @@ function Roadmap() {
 
   return (
     <>
-      <div className="min-h-screen w-screen" id="roadmap">
+      <div className="min-h-screen w-screen desktop-scroll-margin" id="roadmap">
         <div
           className="flex flex-col justify-center items-center"
           ref={wholeSectionRef}

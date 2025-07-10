@@ -3,7 +3,7 @@
 @import "tw-animate-css";
 
 @theme {
-  --font-retro: "Press Start 2P", 'sans-serif'; 
+  --font-retro: "Press Start 2P", "sans-serif";
 }
 
 @custom-variant dark (&:is(.dark *));
