@@ -270,13 +270,27 @@ function Home() {
       animateProjectile();
     }
   }
-
   if (isMobile) {
     return (
       <section className="mobile-home-screen">
         <div className="mobile-home-content">
           <div className="mobile-title">NEED FOR CODE 4.0</div>
           <div className="insert-coin">INSERT COIN TO START</div>
+
+          <div className="lcd-box-row">
+            {[
+              { label: "D", value: countdown.days },
+              { label: "H", value: countdown.hours },
+              { label: "M", value: countdown.mins },
+              { label: "S", value: countdown.secs },
+            ].map(({ label, value }) => (
+              <div className="lcd-box" key={label}>
+                <div className="lcd-num">{String(value).padStart(2, "0")}</div>
+                <div className="lcd-label">{label}</div>
+              </div>
+            ))}
+          </div>
+
           <button className="retro-button" onClick={handleRegisterClick}>
             <span className="button-text">REGISTER</span>
             <Coinslot

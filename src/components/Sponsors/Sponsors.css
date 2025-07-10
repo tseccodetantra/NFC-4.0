@@ -10,14 +10,21 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
   margin: 0;
   padding: 0;
 }
-
+.sans-font {
+  font-family: sans-serif;
+}
 @layer base {
   .pixel-font {
-    font-family: "Press Start 2P", system-ui, sans-serif;
+    font-family: "Press Start 2P" !important;
     letter-spacing: 1px;
   }
 }
@@ -36,7 +43,7 @@ body {
     display: -webkit-box;
     /* parthavi changed this */
     line-clamp: 3;
--webkit-line-clamp: 3;   
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }

@@ -281,7 +281,10 @@ const Sponsors = ({
 
         {/* Sponsors Grid */}
         <ScrollReveal>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+          <div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16"
+            style={{ fontFamily: "sans-serif" }}
+          >
             {sponsors.map((sponsor, index) => (
               <ScrollReveal key={sponsor.name} delay={index * 0.1}>
                 <SimpleSponsorCard {...sponsor} />
