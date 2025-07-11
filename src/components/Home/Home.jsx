@@ -167,38 +167,6 @@ function Home() {
       countdown.hours
     )}  MIN:${pad(countdown.mins)}  SEC:${pad(countdown.secs)}`;
 
-    ctx.font = "16px 'Press Start 2P', monospace";
-    ctx.textBaseline = "bottom";
-    ctx.textAlign = "right";
-    ctx.fillStyle = "#00FF00";
-    ctx.shadowColor = "#00FF00";
-    ctx.shadowBlur = 0;
-
-    const margin = 12;
-    const textMetrics = ctx.measureText(countdownText);
-    const textHeight = 20;
-    const hudPadding = 12;
-    const hudWidth = textMetrics.width + hudPadding * 2;
-    const hudHeight = textHeight + hudPadding * 2;
-    const hudX = canvas.width - margin - hudWidth;
-    const hudY = canvas.height - margin - hudHeight;
-
-    ctx.fillStyle = "#111";
-    ctx.globalAlpha = 0.85;
-    ctx.fillRect(hudX, hudY, hudWidth, hudHeight);
-    ctx.globalAlpha = 1;
-
-    ctx.strokeStyle = "#00EAFF";
-    ctx.lineWidth = 2;
-    ctx.strokeRect(hudX, hudY, hudWidth, hudHeight);
-
-    ctx.fillStyle = "#00EAFF";
-    ctx.fillText(
-      countdownText,
-      hudX + hudWidth - hudPadding,
-      hudY + hudHeight - hudPadding
-    );
-
     ctx.save();
     ctx.translate(shipCenter.x, shipCenter.y);
     ctx.rotate(shipAngle + Math.PI / 2);
@@ -321,6 +289,31 @@ function Home() {
         }}
       >
         <div className="splash-text-flicker">NEED FOR CODE 4.0</div>
+
+        <div
+          className="lcd-box-row"
+          style={{
+            position: "absolute",
+            bottom: 12,
+            right: 24,
+            transform: "scale(1.5)",
+            transformOrigin: "bottom right",
+            zIndex: 5,
+          }}
+        >
+          {[
+            { label: "D", value: countdown.days },
+            { label: "H", value: countdown.hours },
+            { label: "M", value: countdown.mins },
+            { label: "S", value: countdown.secs },
+          ].map(({ label, value }) => (
+            <div className="lcd-box" key={label}>
+              <div className="lcd-num">{String(value).padStart(2, "0")}</div>
+              <div className="lcd-label">{label}</div>
+            </div>
+          ))}
+        </div>
+
         <CometSVG
           className="comet-svg"
           style={{
@@ -332,6 +325,7 @@ function Home() {
           }}
           color={"#00eaff"}
         />
+
         <canvas
           ref={canvasRef}
           width={canvasSize.width}
@@ -344,6 +338,7 @@ function Home() {
           }}
         />
       </div>
+
       <div style={{ textAlign: "center" }}>
         <button
           onClick={handleRegisterClick}

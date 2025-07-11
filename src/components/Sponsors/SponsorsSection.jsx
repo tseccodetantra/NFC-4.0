@@ -221,7 +221,7 @@ const Sponsors = ({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <h2 className="text-5xl md:text-6xl font-bold mb-6  pixel-font ">
+            <h2 className="text-4xl md:text-6xl font-bold mb-6  pixel-font ">
               OUR <span className="text-yellow-400">SPONSORS</span>
             </h2>
             <motion.p

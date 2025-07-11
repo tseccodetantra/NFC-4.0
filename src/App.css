@@ -30,7 +30,7 @@ section {
 }
 @media (min-width: 768px) {
   .desktop-scroll-margin {
-    scroll-margin-top: 180px;
+    scroll-margin-top: 160px;
   }
 }
 

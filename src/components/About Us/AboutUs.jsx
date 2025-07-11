@@ -3,7 +3,11 @@ import "./AboutUs.css";
 
 function AboutUs() {
   return (
-    <section id="about" className="about-section desktop-scroll-margin">
+    <section
+      id="about"
+      className="about-section"
+      style={{ scrollMarginTop: "180px" }}
+    >
       <div className="about-title">
         <span>ABOUT US</span>
       </div>
@@ -25,7 +29,7 @@ function AboutUs() {
             <address className="venue-address">
               W, P. G. Kher Marg
               <br />
-              (32nd Road, Marg, Off Linking Rd, TPS III,
+              32nd Road, Marg, Off Linking Rd, TPS III,
               <br />
               Bandra West, Mumbai,
               <br />
@@ -62,7 +66,7 @@ function AboutUs() {
       <div className="about-title" style={{ marginTop: "48px" }}>
         <span>PRIZES</span>
       </div>
-      <div className="about-boxes">
+      <div className="prize-grid">
         <div className="about-box prize-box">
           <div className="box-title">
             1<sup>st</sup> Place
