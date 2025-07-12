@@ -69,15 +69,6 @@ const Footer = () => {
           </ul>
         </div>
       </div>
-
-      <hr className="my-12 border-yellow-600" />
-
-      {/* Bottom Bar */}
-      <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs md:text-sm text-yellow-200">
-        <div>
-          © {new Date().getFullYear()} Need For Code 4.0 | All rights reserved.
-        </div>
-      </div>
     </footer>
   );
 };
