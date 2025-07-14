@@ -1,5 +1,5 @@
 import { useState, useCallback } from "react";
-import { motion } from "framer-motion";
+import { motion, px } from "framer-motion";
 import {
   ChevronDown,
   Twitter,
@@ -69,6 +69,7 @@ const SimpleSponsorCard = ({
                   }
                   alt={name}
                   className="w-full h-full object-cover"
+                  style={{ width: "100px", height: "100px" }}
                 />
               </div>
               <div>
