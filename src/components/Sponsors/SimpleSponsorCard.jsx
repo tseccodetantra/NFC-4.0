@@ -60,7 +60,10 @@ const SimpleSponsorCard = ({
         <div className="relative z-10">
           {/* Header */}
           <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center space-x-4">
+            <div
+              className="flex items-center space-x-4"
+              style={{ position: "relative", width: "100%" }}
+            >
               <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-cyan-400">
                 <img
                   src={
@@ -69,11 +72,23 @@ const SimpleSponsorCard = ({
                   }
                   alt={name}
                   className="w-full h-full object-cover"
-                  style={{ width: "100px", height: "100px" }}
+                  style={{ width: "50px", height: "50px" }}
                 />
               </div>
-              <div>
-                <h3 className="text-xl font-bold text-white">{name}</h3>
+              <div
+                style={{
+                  position: "absolute",
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  width: "100%",
+                }}
+              >
+                <h3
+                  className="text-xl font-bold text-white"
+                  style={{ width: "100%" }}
+                >
+                  {name}
+                </h3>
                 <p className="text-gray-400 text-sm">{industry}</p>
               </div>
             </div>

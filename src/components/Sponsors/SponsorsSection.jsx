@@ -76,7 +76,7 @@ const defaultSponsorsData = [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsIKP0vZZOlRcunL5v2IXGiqhuyoITYXdijg&s",
     website: "https://www.imperial-overseas.com/",
     description:
-      "Imperial Education is a leading overseas education consultancy that helps students achieve their dreams of studying abroad. We provide personalized guidance, application support, and visa assistance to ensure a smooth transition to international education.",
+      "Imperial Education is a leading overseas education consultancy that helps students achieve their dreams of studying abroad and allow them to grow to the best of their abilities.",
     industry: "Education Consultancy",
     employees: "50+",
     founded: "2009",
