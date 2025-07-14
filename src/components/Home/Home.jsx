@@ -7,7 +7,7 @@ import kachinkSound from "../../assets/sounds/kachink.mp3";
 import "./home.css";
 import Coinslot from "./Coinslot";
 
-const TARGET_DATE = new Date("2025-08-05T10:00:00+05:30");
+const TARGET_DATE = new Date("2025-07-30T23:59:59+05:30");
 
 function getShipAngle(cursorX, cursorY, width, height) {
   const x0 = 8;

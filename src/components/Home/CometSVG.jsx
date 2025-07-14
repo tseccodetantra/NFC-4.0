@@ -1,6 +1,6 @@
 import React from "react";
 
-const TARGET_DATE = new Date("2025-08-05T10:00:00+05:30");
+const TARGET_DATE = new Date("2025-07-30T23:59:59+05:30");
 
 export default function CometSVG({ color }) {
   // Use CSS variable if color not provided
@@ -10,7 +10,7 @@ export default function CometSVG({ color }) {
   const maxScale = 3;
   const now = new Date();
   const event = TARGET_DATE;
-  const total = event - new Date("2025-07-04T00:00:00+05:30");
+  const total = event - new Date("2025-07-15T00:00:00+05:30");
   const left = Math.max(0, event - now);
   let t = 1 - left / total;
   t = Math.max(0, Math.min(1, t));
