@@ -25,7 +25,7 @@ const Footer = () => {
           <ul className="space-y-4 text-sm md:text-base">
             <li>
               <a
-                href="https://devfolio.co"
+                href="https://unstop.com/p/need-for-code-40-tsec-codetantra-1522228"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-cyan-400 transition font-semibold"

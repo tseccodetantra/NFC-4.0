@@ -207,16 +207,19 @@ function Home() {
           .play()
           .then(() => {
             setTimeout(() => {
-              window.location.href = "https://example.com/register";
+              window.location.href =
+                "https://unstop.com/p/need-for-code-40-tsec-codetantra-1522228";
               setIsBlinking(false);
             }, kachink.duration * 1000);
           })
           .catch(() => {
             setIsBlinking(false);
-            window.location.href = "https://example.com/register";
+            window.location.href =
+              "https://unstop.com/p/need-for-code-40-tsec-codetantra-1522228";
           });
       } else {
-        window.location.href = "https://example.com/register";
+        window.location.href =
+          "https://unstop.com/p/need-for-code-40-tsec-codetantra-1522228";
       }
     } else {
       shootAudioRef.current?.play();
@@ -231,7 +234,8 @@ function Home() {
         } else {
           breakAudioRef.current?.play();
           setTimeout(() => {
-            window.location.href = "https://example.com/register";
+            window.location.href =
+              "https://unstop.com/p/need-for-code-40-tsec-codetantra-1522228";
           }, 100);
         }
       }
