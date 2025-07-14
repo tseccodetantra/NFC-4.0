@@ -88,7 +88,7 @@
 }
 .prize-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 16px;
   margin-top: 24px;
   place-items: center;
@@ -129,8 +129,7 @@
   margin-bottom: 18px;
   letter-spacing: 1px;
   box-shadow: 0 2px 0 var(--magenta), 0 0 8px var(--neon-yellow);
-  text-shadow: 0 0 2px var(--neon-yellow),
-    2px 2px 0 var(--magenta);
+  text-shadow: 0 0 2px var(--neon-yellow), 2px 2px 0 var(--magenta);
   animation: title-glow 1.5s infinite alternate;
 }
 
@@ -273,7 +272,7 @@
 }
 .prize-box {
   height: auto;
-  width: 200px;
+  width: clamp(200px, 100%, 400px);
   margin: 6px;
 }
 
@@ -282,10 +281,15 @@
   width: 100%;
   border: 3px solid #ff0000;
   border-radius: 12px;
+  opacity: 1 !important;
 }
 
 .gmap {
   width: 100%;
   height: 100%;
   border-radius: 10px;
+  opacity: 1 !important;
+}
+.about-boxes .about-box:first-child .box-content {
+  animation: none !important;
 }
