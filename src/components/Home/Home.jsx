@@ -210,7 +210,7 @@ function Home() {
               window.location.href =
                 "https://unstop.com/p/need-for-code-40-tsec-codetantra-1522228";
               setIsBlinking(false);
-            }, kachink.duration * 1000);
+            }, kachink.duration * 1000 + 400);
           })
           .catch(() => {
             setIsBlinking(false);
@@ -236,7 +236,7 @@ function Home() {
           setTimeout(() => {
             window.location.href =
               "https://unstop.com/p/need-for-code-40-tsec-codetantra-1522228";
-          }, 100);
+          }, 600);
         }
       }
       animateProjectile();
