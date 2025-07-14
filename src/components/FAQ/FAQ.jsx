@@ -10,7 +10,7 @@ const faqs = [
   {
     question: `When and where will "Need For Code 4.0" take place?`,
     answer:
-      "Zoom into action on 5th August 2025 at 10:00 AM! The coding chaos continues till 6th August at Thadomal Shahani Engineering College, Bandra, Mumbai!",
+      "Zoom into action on 5th August 2025 at 9:00 AM! The coding chaos continues till 7th August at Thadomal Shahani Engineering College, Bandra, Mumbai!",
   },
   {
     question: `Who can participate in "Need For Code 4.0"?`,
@@ -21,7 +21,7 @@ const faqs = [
     question:
       "How can I register for Need For Code 4.0 and is there a registration fee?",
     answer:
-      "Hit the boosters on Unstop to register, no coins needed! It’s 100% free to dash in!",
+      "Hit the boosters on Unstop to register. It's 400 rupees per team if you make it past the initial shortlisting.",
   },
   {
     question: "Can I participate as an individual or do I need a team?",
@@ -36,17 +36,17 @@ const faqs = [
   {
     question: "Can I attend the hackathon remotely?",
     answer:
-      "Zoom in from your base or go full throttle on-site—it’s hybrid, your choice!",
+      "No, this hackathon is an in-person event only – gotta be there to go fast!",
   },
   {
     question: "How many hours will the hackathon last?",
     answer:
-      "It’s a 24-hour warp zone! From 5th Aug 11:00 AM to 6th Aug 11:00 AM—non-stop coding frenzy!",
+      "It’s a 48-hour warp zone! From 5th Aug 10:00 AM to 6th Aug 11:00 AM is the initial round! After which the particpants will be given the rest of the evening off to go home and relax. A shortlist will be released in the evening of 6th August, and the shortlisted teams will attend the final round which will be held on 7th August from 9:00 AM",
   },
   {
     question: "Is there any accommodation facility?",
     answer:
-      "While we don't offer external stays, we’ve got you covered with comfy spaces during the hackathon hours!",
+      "While we don't offer external stays, we’ve got you covered with comfy spaces during the hackathon hours for the first 24 hours after which there will be no accomodation provided!",
   },
 ];
 
