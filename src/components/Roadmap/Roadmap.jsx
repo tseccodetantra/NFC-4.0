@@ -1,5 +1,5 @@
 import RoadmapCard from "./RoadmapCard";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { gsap } from "gsap";
@@ -14,21 +14,35 @@ function Roadmap() {
   const wholeSectionRef = useRef(); // New ref for the entire timeline
 
   const day1Events = [
-    { event: "Check-In", time: "8:00 AM" },
-    { event: "Inauguration Ceremony", time: "10:00 AM" },
-    { event: "Announcement of Problem Statements", time: "10:30 AM" },
-    { event: "Hackathon Begins", time: "11:00 AM" },
+    { event: "Reporting Time", time: "9:00 AM" },
+    { event: "Opening Ceremony", time: "10:00 AM" },
+    { event: "Start of Coding Round", time: "11:00 AM" },
     { event: "Lunch", time: "2:00 PM" },
-    { event: "Mentoring Round", time: "7 - 9 PM" },
+    { event: "Mentoring", time: "7:00 PM" },
     { event: "Dinner", time: "9:00 PM" },
   ];
 
   const day2Events = [
     { event: "Breakfast", time: "8:00 AM" },
-    { event: "Hackathon Ends and Internal Judging Starts", time: "11:00 AM" },
-    { event: "Announcement of Finalist Teams", time: "1:00 PM" },
-    { event: "Result Announcement", time: "4:00 PM" },
+    { event: "Initial Coding Round Over", time: "11:00 AM" },
+    { event: "Shortlist Released", time: "9:00 PM" },
   ];
+
+  const day3Events = [
+    { event: "Report for Final Judging Round\n(Shortlisted Teams Only)", time: "9:00 AM" },
+  ];
+
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth)
+    }
+    window.addEventListener('resize', handleResize)
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
 
   useEffect(() => {
     AOS.init({
@@ -41,21 +55,19 @@ function Roadmap() {
     // Set initial states
     gsap.set(day1PacmanRef.current, { y: -50, opacity: 0 });
 
-    // Single continuous Pacman animation for the entire timeline
     gsap
       .timeline({
         scrollTrigger: {
           trigger: wholeSectionRef.current, // Use the whole section as trigger
           start: "top 10%",
-          end: "bottom 99%",
+          end: "bottom 75%",
           scrub: 1,
-          // refreshPriority: 1,
           onEnter: () => {
-            // console.log("timeline enter");
+            console.log("timeline enter");
             gsap.set(day1PacmanRef.current, { opacity: 1 });
           },
           onLeave: () => {
-            // console.log("timeline leave");
+            console.log("timeline leave");
             gsap.set(day1PacmanRef.current, { opacity: 0 });
           },
           onEnterBack: () => {
@@ -70,7 +82,7 @@ function Roadmap() {
         day1PacmanRef.current,
         { y: -50 },
         {
-          y: day1Events.length * 250,
+          y: day1Events.length * 280,
           ease: "none",
           duration: 1,
         }
@@ -84,7 +96,6 @@ function Roadmap() {
 
   useEffect(() => {
   const reinitializeAOS = () => {
-    // console.log("🔄 Reinitializing AOS due to layout change");
     AOS.refresh();
     ScrollTrigger.refresh();
   };
@@ -94,15 +105,12 @@ function Roadmap() {
 
   // Listen for custom domain events
   window.addEventListener('domainCardClosed', () => {
-    // console.log("✅ Domain card closed - refreshing AOS");
     setTimeout(reinitializeAOS, 200);
   });
   
   // Listen for any click on the page and check if it's a domain card
   const handleClick = (e) => {
-    // console.log("🖱️ Click detected on:", e.target);
     
-    // Check if the click is on or inside a domain card
     if (e.target.closest('.card1') || 
         e.target.closest('.theBox') || 
         e.target.closest('.close-button') ||
@@ -110,7 +118,6 @@ function Roadmap() {
         e.target.classList.contains('theBox') ||
         e.target.classList.contains('close-button')
       ) {
-      // console.log("✅ Domain card clicked - refreshing AOS in 200ms");
       setTimeout(reinitializeAOS, 200);
     }
   };
@@ -144,19 +151,19 @@ function Roadmap() {
           <h2 className="text-2xl text-center landscape:lg:mr-0 lg:text-left landscape:md:mr-72 w-screen max-w-3xl text-[#77F1FF] py-0 sm:py-5 press-start-2p-regular animate-bounce">
             DAY - 1
           </h2>
-          <div className="relative mb-2 sm:mb-20" ref={day1SectionRef}>
+          <div className="relative mb-2 sm:landscape:mb-15" ref={day1SectionRef}>
             {/* Vertical Line */}
             <div
               className="w-1 mb-20 bg-[#DC53E6] absolute top-5 lg:top-0 left-0 lg:left-1/2 landscape:md:left-1/2 transform lg:-translate-x-1/2 z-10 vertical-line-glow animate-pulse"
               style={{
                 height:
-                  window.innerWidth < 640
-                    ? `${day1Events.length * 168}px`
-                    : `${day1Events.length * 260}px`,
+                  windowWidth < 640
+                    ? `${day1Events.length * 192}px`
+                    : `${day1Events.length * 277}px`,
               }}
             ></div>
 
-            {/* GSAP Controlled Pacman */}
+            {/* Pacman */}
             <div
               ref={day1PacmanRef}
               className="pacman-scroll hidden lg:block"
@@ -178,7 +185,7 @@ function Roadmap() {
             DAY - 2
           </h2>
 
-          <div className="relative mb-20">
+          <div className="relative mb-0">
             {day2Events.map((item, index) => (
               <RoadmapCard
                 key={`day2-${index}`}
@@ -189,6 +196,23 @@ function Roadmap() {
               />
             ))}
           </div>
+
+            <h2 className="text-2xl text-center landscape:lg:mr-0 lg:text-left landscape:md:mr-72 w-screen max-w-3xl text-[#77F1FF] py-5 press-start-2p-regular animate-bounce">
+            DAY - 3
+          </h2>
+
+          <div className="relative mb-10">
+            {day3Events.map((item, index) => (
+              <RoadmapCard
+                key={`day3-${index}`}
+                event={item.event}
+                time={item.time}
+                pos={index}
+                animationDelay={index * 100}
+              />
+            ))}
+          </div>
+
         </div>
       </div>
     </>
