@@ -176,9 +176,10 @@
 .teams-carousel-container {
   position: relative;
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: 20px;
+  border-right: 2px #00eaff solid;
+  border-left: 2px #00eaff solid;
   background: linear-gradient(135deg, #1b1552, #241843);
-  border: 2px solid #27ded5;
   box-shadow: 0 0 30px rgba(39, 222, 213, 0.2);
   min-height: clamp(250px, 40vw, 300px);
 }
@@ -333,7 +334,6 @@
   gap: clamp(6px, 1vw, 10px);
   padding: clamp(10px, 2vw, 15px);
   background: rgba(23, 23, 59, 0.8);
-  border-top: 1px solid #27ded5;
 }
 
 .progress-dot {
