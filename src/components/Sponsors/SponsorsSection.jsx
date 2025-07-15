@@ -50,7 +50,7 @@ const defaultSponsorsData = [
     },
   },
   {
-    name: "GeeksForGeeks",
+    name: "⠀⠀GeeksForGeeks",
     imageUrl:
       "https://play-lh.googleusercontent.com/ZI21NMObsjB7DbPU_EXRymHJL3HQpfsrB2N4CWb-diXm4xjl_13mmetYQZvcpgGf-64",
     website: "https://www.geeksforgeeks.org/",
@@ -72,7 +72,7 @@ const defaultSponsorsData = [
     },
   },
   {
-    name: "InterviewBuddy",
+    name: "⠀⠀InterviewBuddy",
     imageUrl:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxT6W2J3-40UX9t2ELVsd2lBlaVIsMk63iKQ&s",
     website: "https://interviewbuddy.net/",
@@ -94,13 +94,13 @@ const defaultSponsorsData = [
     },
   },
   {
-    name: "Imperial Education",
+    name: "⠀⠀⠀⠀Imperial Education",
     imageUrl:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsIKP0vZZOlRcunL5v2IXGiqhuyoITYXdijg&s",
     website: "https://www.imperial-overseas.com/",
     description:
       "Imperial Education is a leading overseas education consultancy that helps students achieve their dreams of studying abroad and allow them to grow to the best of their abilities.",
-    industry: "Education Consultancy",
+    industry: "⠀Education Consultancy",
     employees: "50+",
     founded: "2009",
     specialties: [
@@ -122,7 +122,7 @@ const defaultSponsorsData = [
     website: "https://www.imfs.co.in/",
     description:
       "For over 25 years, IMFS has empowered 60,000+ students from 15+ locations to achieve their global education dreams. From test prep to admissions, visas, and loans—we simplify every step of your journey.",
-    industry: "Education Consultancy",
+    industry: "⠀Education Consultancy",
     employees: "150+",
     founded: "1997",
     specialties: [
@@ -143,7 +143,7 @@ const defaultSponsorsData = [
     website: "https://www.admitabroad.com/",
     description:
       "AdmitAbroad is your trusted partner in navigating the landscape of international education. We bring decades of educational expertise and a proven track record to help you secure admission to top universities worldwide. ",
-    industry: "Education Consultancy",
+    industry: "⠀Education Consultancy",
     employees: "50+",
     founded: "2019",
     specialties: [

@@ -63,11 +63,9 @@ function Roadmap() {
           end: "bottom 85%",
           scrub: 1,
           onEnter: () => {
-            console.log("timeline enter");
             gsap.set(day1PacmanRef.current, { opacity: 1 });
           },
           onLeave: () => {
-            console.log("timeline leave");
             gsap.set(day1PacmanRef.current, { opacity: 0 });
           },
           onEnterBack: () => {

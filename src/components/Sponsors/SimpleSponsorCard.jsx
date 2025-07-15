@@ -83,7 +83,7 @@ const SimpleSponsorCard = ({
                 }}
               >
                 <h3
-                  className="text-xl font-bold text-white"
+                  className="text-xl sm:text-xl lg:text-xl font-bold text-white w-full"
                   style={{ width: "100%" }}
                 >
                   {name}
