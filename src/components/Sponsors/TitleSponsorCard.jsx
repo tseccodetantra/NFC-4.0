@@ -7,7 +7,7 @@ import {
   Github,
   ExternalLink,
 } from "lucide-react";
-const SimpleSponsorCard = ({
+const TitleSponsorCard = ({
   name,
   imageUrl,
   website,
@@ -64,16 +64,17 @@ const SimpleSponsorCard = ({
               className="flex items-center space-x-4"
               style={{ position: "relative", width: "100%" }}
             >
-              <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-cyan-400">
+              <div className="w-16 h-16 sm:w-[100px] sm:h-[100px] rounded-full overflow-hidden border-2 border-cyan-400">
                 <img
                   src={
                     imageUrl ||
                     "https://via.placeholder.com/64x64/374151/ffffff?text=Logo"
                   }
                   alt={name}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover p-1 sm:p-2"
                 />
               </div>
+
               <div
                 style={{
                   position: "absolute",
@@ -82,13 +83,10 @@ const SimpleSponsorCard = ({
                   width: "100%",
                 }}
               >
-                <h3
-                  className="text-xl font-bold text-white"
-                  style={{ width: "100%" }}
-                >
+                <h3 className="text-xl sm:text-3xl lg:text-5xl font-bold text-white">
                   {name}
                 </h3>
-                <p className="text-gray-400 text-sm">{industry}</p>
+                <p className="text-xs sm:text-sm text-gray-400">{industry}</p>
               </div>
             </div>
 
@@ -100,13 +98,6 @@ const SimpleSponsorCard = ({
             >
               <ChevronDown size={24} />
             </motion.div>
-          </div>
-
-          {/* Basic info */}
-          <div className="text-gray-300 text-sm mb-4">
-            <p className="opacity-80">
-              {employees} employees • Founded {founded}
-            </p>
           </div>
 
           {/* Description preview */}
@@ -213,4 +204,4 @@ const SimpleSponsorCard = ({
   );
 };
 
-export default SimpleSponsorCard;
+export default TitleSponsorCard;

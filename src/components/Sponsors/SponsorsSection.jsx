@@ -2,8 +2,31 @@ import ScrollReveal from "./ScrollReveal";
 import SimpleSponsorCard from "./SimpleSponsorCard";
 import { motion } from "framer-motion";
 // import "./Sponsors.css";
-
+import TitleSponsorCard from "./TitleSponsorCard";
 // Sample sponsors data - replace with your own
+const titlesponsors = [
+  {
+    name: "Redfox",
+    imageUrl:
+      "https://dme2wmiz2suov.cloudfront.net/Institution(7569)/Logo/3767746-Trial_Small-01.png",
+    website: "https://academy.redfoxsec.com/",
+    description:
+      "At Redfox Academy, our courses are structured across three levels Beginner, Intermediate, and Advanced to guide learners through a practical and progressive journey in cybersecurity. Whether you're just starting out or aiming to specialize in advanced areas, there's a course tailored for every stage. ",
+    industry: "Title Sponsor",
+    employees: "",
+    founded: "2017",
+    specialties: [
+      "Cybersecurity",
+      "Ethical Hacking",
+      "Penetration Testing",
+      "Red Teaming",
+    ],
+    socialLinks: {
+      twitter: "https://x.com/redfoxsec/",
+      linkedin: "https://www.linkedin.com/company/redfoxsec/",
+    },
+  },
+];
 const defaultSponsorsData = [
   {
     name: "Unstop",
@@ -92,6 +115,48 @@ const defaultSponsorsData = [
         "https://www.linkedin.com/company/imperial-overseas-education-consultants/",
     },
   },
+  {
+    name: "IMFS",
+    imageUrl:
+      "https://www.imfs.co.in/wp-content/uploads/2024/07/logo-white-e1691126840885.png.bv_resized_desktop.png.bv_.webp",
+    website: "https://www.imfs.co.in/",
+    description:
+      "For over 25 years, IMFS has empowered 60,000+ students from 15+ locations to achieve their global education dreams. From test prep to admissions, visas, and loans—we simplify every step of your journey.",
+    industry: "Education Consultancy",
+    employees: "150+",
+    founded: "1997",
+    specialties: [
+      "Overseas Education",
+      "University Admissions",
+      "Visa Assistance",
+      "Career Counseling",
+      "Scholarship Guidance",
+    ],
+    socialLinks: {
+      linkedin: "https://www.linkedin.com/company/imfs/",
+    },
+  },
+  {
+    name: "Admit Abroad",
+    imageUrl:
+      "https://media.licdn.com/dms/image/v2/C560BAQGy97-SQsB0Ew/company-logo_200_200/company-logo_200_200/0/1630633471301/admitabroad_logo?e=2147483647&v=beta&t=oTUh_whp-ZzUlOgqDaZ7JzXWsBXJcCFvBp91WwcsjgM",
+    website: "https://www.admitabroad.com/",
+    description:
+      "AdmitAbroad is your trusted partner in navigating the landscape of international education. We bring decades of educational expertise and a proven track record to help you secure admission to top universities worldwide. ",
+    industry: "Education Consultancy",
+    employees: "50+",
+    founded: "2019",
+    specialties: [
+      "Overseas Education",
+      "University Admissions",
+      "Visa Assistance",
+      "Career Counseling",
+      "Scholarship Guidance",
+    ],
+    socialLinks: {
+      linkedin: "https://www.linkedin.com/company/admitabroad/",
+    },
+  },
 ];
 
 const Sponsors = ({
@@ -141,7 +206,7 @@ const Sponsors = ({
                   { label: "Sponsors", value: "10+", color: "text-cyan-400" },
                   {
                     label: "Prize Pool",
-                    value: "60K+",
+                    value: "80K+",
                     color: "text-green-400",
                   },
                   {
@@ -179,7 +244,31 @@ const Sponsors = ({
           </motion.div>
         </ScrollReveal>
 
-        {/* Sponsors Grid */}
+        <ScrollReveal>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-16">
+            <div className="col-span-1 hidden lg:block" />{" "}
+            <div
+              className="col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-3 grid gap-6"
+              style={{ fontFamily: "sans-serif" }}
+            >
+              {titlesponsors.map((sponsor, index) => (
+                <ScrollReveal key={sponsor.name} delay={index * 0.1}>
+                  <TitleSponsorCard {...sponsor} />
+                </ScrollReveal>
+              ))}
+            </div>
+            <div className="col-span-1 hidden lg:block" />{" "}
+          </div>
+          <hr
+            style={{
+              height: "2px",
+              backgroundColor: "#374151",
+              border: "none",
+              margin: "1rem 0",
+            }}
+          ></hr>
+        </ScrollReveal>
+
         <ScrollReveal>
           <div
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16"

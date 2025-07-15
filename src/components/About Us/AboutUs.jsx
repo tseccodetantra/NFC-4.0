@@ -85,25 +85,25 @@ function AboutUs() {
         <div className="about-box prize-box">
           <div className="box-title">Web/App Dev</div>
           <div className="box-content">
-            <p className="prize-amount">₹ 15,000+</p>
+            <p className="prize-amount">₹ 20,000+</p>
           </div>
         </div>
         <div className="about-box prize-box">
           <div className="box-title">AIML</div>
           <div className="box-content">
-            <p className="prize-amount">₹ 15,000+</p>
+            <p className="prize-amount">₹ 20,000+</p>
           </div>
         </div>
         <div className="about-box prize-box">
           <div className="box-title">Social Cause</div>
           <div className="box-content">
-            <p className="prize-amount">₹ 15,000+</p>
+            <p className="prize-amount">₹ 20,000+</p>
           </div>
         </div>
         <div className="about-box prize-box">
           <div className="box-title">Blockchain</div>
           <div className="box-content">
-            <p className="prize-amount">₹ 15,000+</p>
+            <p className="prize-amount">₹ 20,000+</p>
           </div>
         </div>
       </div>
