@@ -14,22 +14,22 @@ function Roadmap() {
   const wholeSectionRef = useRef(); // New ref for the entire timeline
 
   const day1Events = [
-    { event: "Reporting Time", time: "9:00 AM" },
-    { event: "Opening Ceremony", time: "10:00 AM" },
-    { event: "Start of Coding Round", time: "11:00 AM" },
+    { event: "Offline Reporting at TSEC Campus", time: "9:00 AM" },
+    { event: "24-Hour Onsite Coding Round Begins", time: "11:00 AM" },
     { event: "Lunch", time: "2:00 PM" },
-    { event: "Mentoring", time: "7:00 PM" },
+    { event: "Mentoring Starts", time: "7:00 PM" },
     { event: "Dinner", time: "9:00 PM" },
   ];
 
   const day2Events = [
     { event: "Breakfast", time: "8:00 AM" },
-    { event: "Initial Coding Round Over", time: "11:00 AM" },
-    { event: "Shortlist Released", time: "9:00 PM" },
+    { event: "Internal Judging Round (Partcipants Leave)", time: "11:00 AM - 3:00 PM" },
+    { event: "Final Shortlisted Teams Announced", time: "9:00 PM" },
   ];
 
   const day3Events = [
-    { event: "Report for Final Judging Round\n(Shortlisted Teams Only)", time: "9:00 AM" },
+    { event: "Finalists Report back to TSEC", time: "10:00 AM" },
+    { event: "Final Judging and Winner Announcements", time: "11:00 AM Onwards" },
   ];
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
@@ -60,7 +60,7 @@ function Roadmap() {
         scrollTrigger: {
           trigger: wholeSectionRef.current, // Use the whole section as trigger
           start: "top 10%",
-          end: "bottom 75%",
+          end: "bottom 85%",
           scrub: 1,
           onEnter: () => {
             console.log("timeline enter");
@@ -82,7 +82,7 @@ function Roadmap() {
         day1PacmanRef.current,
         { y: -50 },
         {
-          y: day1Events.length * 280,
+          y: day1Events.length * 370,
           ease: "none",
           duration: 1,
         }
@@ -151,6 +151,9 @@ function Roadmap() {
           <h2 className="text-2xl text-center landscape:lg:mr-0 lg:text-left landscape:md:mr-72 w-screen max-w-3xl text-[#77F1FF] py-0 sm:py-5 press-start-2p-regular animate-bounce">
             DAY - 1
           </h2>
+          <h3 className="text-lg text-center landscape:lg:mr-20 lg:text-left landscape:md:mr-72 w-screen max-w-3xl text-[#77F1FF] py-0 sm:py-0 press-start-2p-regular animate-pulse">
+            5th August 2025
+          </h3>
           <div className="relative mb-2 sm:landscape:mb-15" ref={day1SectionRef}>
             {/* Vertical Line */}
             <div
@@ -158,8 +161,8 @@ function Roadmap() {
               style={{
                 height:
                   windowWidth < 640
-                    ? `${day1Events.length * 192}px`
-                    : `${day1Events.length * 277}px`,
+                    ? `${day1Events.length * 257}px`
+                    : `${day1Events.length * 378}px`,
               }}
             ></div>
 
@@ -184,6 +187,9 @@ function Roadmap() {
           <h2 className="text-2xl w-screen max-w-3xl text-center lg:ml-16 lg:text-right landscape:lg:ml-0 landscape:md:ml-72 text-[#77F1FF] py-5 press-start-2p-regular animate-bounce">
             DAY - 2
           </h2>
+          <h3 className="text-lg w-screen max-w-3xl text-center lg:ml-16 lg:text-right landscape:lg:ml-20 landscape:md:ml-72 text-[#77F1FF] py-0 press-start-2p-regular animate-pulse">
+            6th August 2025
+          </h3>
 
           <div className="relative mb-0">
             {day2Events.map((item, index) => (
@@ -197,9 +203,12 @@ function Roadmap() {
             ))}
           </div>
 
-            <h2 className="text-2xl text-center landscape:lg:mr-0 lg:text-left landscape:md:mr-72 w-screen max-w-3xl text-[#77F1FF] py-5 press-start-2p-regular animate-bounce">
+          <h2 className="text-2xl text-center landscape:lg:mr-0 lg:text-left landscape:md:mr-72 w-screen max-w-3xl text-[#77F1FF] py-5 press-start-2p-regular animate-bounce">
             DAY - 3
           </h2>
+          <h3 className="text-lg text-center landscape:lg:mr-20 lg:text-left landscape:md:mr-72 w-screen max-w-3xl text-[#77F1FF] py-0 press-start-2p-regular animate-pulse">
+            7th August 2025
+          </h3>
 
           <div className="relative mb-10">
             {day3Events.map((item, index) => (
