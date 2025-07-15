@@ -138,18 +138,22 @@ const Sponsors = ({
                 transition={{ delay: 0.4, duration: 0.6 }}
               >
                 {[
-                  { label: "Sponsors", value: "25+", color: "text-cyan-400" },
+                  { label: "Sponsors", value: "10+", color: "text-cyan-400" },
                   {
                     label: "Prize Pool",
-                    value: "75K+",
+                    value: "60K+",
                     color: "text-green-400",
                   },
                   {
                     label: "Participants",
-                    value: "500+",
+                    value: "200+",
                     color: "text-purple-400",
                   },
-                  { label: "Cities", value: "20+", color: "text-yellow-400" },
+                  {
+                    label: "Teams Registered",
+                    value: "50+",
+                    color: "text-yellow-400",
+                  },
                 ].map((stat, index) => (
                   <motion.div
                     key={stat.label}
