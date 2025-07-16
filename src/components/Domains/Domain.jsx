@@ -13,25 +13,29 @@ function Domain() {
       img: pic3,
       title: 'AI-ML',
       text: 'Develop intelligent systems and machine learning models',
-      problem: `Problem Statement: `,
+      problem: `Problem Statement: 
+                  To be Released`,
     },
     {
       img: pic,
       title: 'Web/App Development',
       text: 'Build responsive websites and applications',
-      problem: `Problem Statement: `,
+      problem: `Problem Statement: 
+                  To be Released`,
     },
     {
       img: pic2,
       title: 'Social Cause',
       text: 'Tackle societal challenges with tech-driven solutions',
-      problem: `Problem Statement: `,
+      problem: `Problem Statement: 
+                  To be Released`,
     },
     {
       img: pic1,
       title: 'Block chain',
       text: 'Build decentralized apps and smart contracts',
-      problem: `Problem Statement: `,
+      problem: `Problem Statement: 
+                  To be Released`,
     },
   ];
 

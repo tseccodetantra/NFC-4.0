@@ -21,7 +21,7 @@ const faqs = [
     question:
       "How can I register for Need For Code 4.0 and is there a registration fee?",
     answer:
-      "Hit the boosters on Unstop to register. It's 400 rupees per team if you make it past the initial shortlisting.",
+      "Hit the boosters on Unstop to register. It's 500 rupees per team if you make it past the initial shortlisting.",
   },
   {
     question: "Can I participate as an individual or do I need a team?",
