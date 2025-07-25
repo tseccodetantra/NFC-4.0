@@ -23,7 +23,7 @@ function Roadmap() {
 
   const day2Events = [
     { event: "Breakfast", time: "8:00 AM" },
-    { event: "Internal Judging Round (Partcipants Leave)", time: "11:00 AM - 3:00 PM" },
+    { event: "Internal Judging Round (Participants Leave)", time: "11:00 AM - 3:00 PM" },
     { event: "Final Shortlisted Teams Announced", time: "9:00 PM" },
   ];
 
