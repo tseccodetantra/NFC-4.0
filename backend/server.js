@@ -32,7 +32,16 @@ app.get('/api/attendence', async (req, res) => {
     try {
         const client = await auth.getClient();
         const sheets = google.sheets({ version: 'v4', auth: client });
-        const now = new Date().toLocaleString();
+        const now = new Date().toLocaleString('en-US', {
+            timeZone: 'Asia/Kolkata',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: true
+        });;
 
         const getRes = await sheets.spreadsheets.values.get({
             spreadsheetId: SPREADSHEET_ID,
@@ -49,7 +58,7 @@ app.get('/api/attendence', async (req, res) => {
         }
 
         if (foundId === -1) {
-            return res.status(404).json({msg: 'Student not found'});
+            return res.status(404).json({ msg: 'Student not found' });
         }
 
         await sheets.spreadsheets.values.update({
