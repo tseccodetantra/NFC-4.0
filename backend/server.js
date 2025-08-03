@@ -45,7 +45,7 @@ const updateSheet = async (id, role) => {
 
     const getRes = await sheets.spreadsheets.values.get({
         spreadsheetId: SPREADSHEET_ID,
-        range: `Sheet1!A2:E`,
+        range: `Table1!A2:E`,
     });
     const rows = getRes.data.values;
 
@@ -63,7 +63,7 @@ const updateSheet = async (id, role) => {
 
     await sheets.spreadsheets.values.update({
         spreadsheetId: SPREADSHEET_ID,
-        range: `Sheet1!${roleRow[role]}${foundId}`,
+        range: `Table1!${roleRow[role]}${foundId}`,
         valueInputOption: 'USER_ENTERED',
         requestBody: {
             values: [["Yes"]],
@@ -72,7 +72,7 @@ const updateSheet = async (id, role) => {
 
     await sheets.spreadsheets.values.update({
         spreadsheetId: SPREADSHEET_ID,
-        range: `Sheet1!D${foundId}`,
+        range: `Table1!D${foundId}`,
         valueInputOption: 'USER_ENTERED',
         requestBody: {
             values: [[now]],
@@ -100,7 +100,12 @@ app.get('/api/:role', async (req, res) => {
         await updateSheet(id, role);
         return res.status(200).json({ message: `Marked ${role} for ${id}` });
     } catch (err) {
-        return res.status(500).json({ message: "Error updating sheet" });
+        console.error("Google Sheets API error:", err); // Logs full error to terminal
+        return res.status(500).json({
+            message: "Error updating sheet",
+            error: err.message, // Sends readable message to frontend
+            details: err.errors || err.response?.data || "No additional error details",
+        });
     }
 })
 
