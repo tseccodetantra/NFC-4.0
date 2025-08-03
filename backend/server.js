@@ -22,7 +22,7 @@ const auth = new google.auth.GoogleAuth({
 
 const SPREADSHEET_ID = process.env.SPREADSHEET_ID;
 
-const updateSheet = async (role, id) => {
+const updateSheet = async (id, role) => {
     const client = await auth.getClient();
     const sheets = google.sheets({ version: 'v4', auth: client });
     const now = new Date().toLocaleString('en-US', {
@@ -51,7 +51,7 @@ const updateSheet = async (role, id) => {
 
     let foundId = -1;
     for (let i = 0; i < rows.length; i++) {
-        if (rows[i][0] === studentId) {
+        if (rows[i][0] === id) {
             foundId = i + 2;
             break;
         }
@@ -82,12 +82,12 @@ const updateSheet = async (role, id) => {
 app.get('/api/:role', async (req, res) => {
     const { role } = req.params;
     const { id } = req.query;
-    const { password } = req.body;
+    const { password } = req.query;
 
     if (!id || !password) return res.status(400).json({ message: "Missing data" });
 
     // Validate password
-    if (password !== process.env.SECRET_PASSWORD) {
+    if (password !== process.env.PASSWORD) {
         return res.status(401).json({ message: "Invalid password" });
     }
 
