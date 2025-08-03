@@ -52,7 +52,12 @@ const updateSheet = async (id, role) => {
     let foundId = -1;
     for (let i = 0; i < rows.length; i++) {
         if (rows[i][0] === id) {
-            foundId = i + 2;
+            foundId = i + 2; // row number in sheet (because we start at A2)
+            // Check if already marked "Yes"
+            const roleIndex = Object.keys(roleCol).indexOf(role) + 4;
+            if (rows[i][roleIndex] && rows[i][roleIndex].toLowerCase() === 'yes') {
+                return { success: false, status: 200, msg: `DUPLICATE FOUND! ${role} already marked for ${id}` };
+            }
             break;
         }
     }
