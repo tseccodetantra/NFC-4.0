@@ -58,7 +58,7 @@ const updateSheet = async (id, role) => {
     }
 
     if (foundId === -1) {
-        return res.status(404).json({ msg: 'Student not found' });
+        return { success: false, status: 404, msg: 'Student not found' };
     }
 
     await sheets.spreadsheets.values.update({
