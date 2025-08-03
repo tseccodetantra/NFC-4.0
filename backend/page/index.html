@@ -83,7 +83,7 @@
         alert("ID missing in URL.");
         return;
       }
-
+      console.log(id);
       const res = await fetch(`https://nfc4-0-attendence.onrender.com/api/${role}?id=${encodeURIComponent(id)}`, {
         method: "POST",
         headers: {
