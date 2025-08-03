@@ -36,12 +36,12 @@ const updateSheet = async (id, role) => {
         hour12: true
     });
     
-    const roleRow = {
+    const roleCol = {
         "attendence": 'E',
         "lunch": 'F',
         "dinner": 'G',
         "breakfast": 'H',
-    }
+    };
 
     const getRes = await sheets.spreadsheets.values.get({
         spreadsheetId: SPREADSHEET_ID,
