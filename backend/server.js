@@ -45,7 +45,7 @@ const updateSheet = async (id, role) => {
 
     const getRes = await sheets.spreadsheets.values.get({
         spreadsheetId: SPREADSHEET_ID,
-        range: `Table1!A2:E`,
+        range: `Table1!A2:H`,
     });
     const rows = getRes.data.values;
 
