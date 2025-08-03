@@ -105,8 +105,8 @@ app.get('/api/:role', async (req, res) => {
 
     try {
         // Google Sheets update logic
-        await updateSheet(id, role);
-        return res.status(200).json({ message: `Marked ${role} for ${id}` });
+        const result = await updateSheet(id, role);
+        return res.status(result.status).json({ message: result.msg, success: result.success });
     } catch (err) {
         console.error("Google Sheets API error:", err); // Logs full error to terminal
         return res.status(500).json({
