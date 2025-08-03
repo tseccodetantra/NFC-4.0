@@ -68,7 +68,7 @@ const updateSheet = async (id, role) => {
 
     await sheets.spreadsheets.values.update({
         spreadsheetId: SPREADSHEET_ID,
-        range: `Table1!${roleRow[role]}${foundId}`,
+        range: `Table1!${roleCol[role]}${foundId}`,
         valueInputOption: 'USER_ENTERED',
         requestBody: {
             values: [["Yes"]],
