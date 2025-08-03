@@ -6,12 +6,13 @@
 
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #cf9a3a 0%, #211f1e 100%);
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px;
+  overflow-x: hidden;
 }
 
 .app {
@@ -20,17 +21,22 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 10px;
 }
 
 .container {
-  background: white;
+  background: #ffffff;
   border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 40px rgba(33, 31, 30, 0.2);
   padding: 2rem;
   max-width: 500px;
   width: 100%;
   text-align: center;
   animation: fadeIn 0.5s ease-in;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 @keyframes fadeIn {
@@ -47,12 +53,22 @@ body {
 .logo {
   font-size: 2rem;
   font-weight: bold;
-  color: #667eea;
+  color: #cf9a3a;
   margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.logo img {
+  height: 40px;
+  width: auto;
 }
 
 h2 {
-  color: #333;
+  color: #b88a2a;
   margin-bottom: 1.5rem;
   font-size: 1.5rem;
 }
@@ -65,7 +81,7 @@ h2 {
 label {
   display: block;
   margin-bottom: 0.5rem;
-  color: #555;
+  color: #ffb937;
   font-weight: 500;
 }
 
@@ -77,12 +93,17 @@ input[type="text"] {
   border-radius: 10px;
   font-size: 1rem;
   transition: border-color 0.3s ease;
+  background: #ffffff;
+  color: #211f1e;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 input[type="password"]:focus,
 input[type="text"]:focus {
   outline: none;
-  border-color: #667eea;
+  border-color: #cf9a3a;
 }
 
 .role-options {
@@ -110,18 +131,23 @@ input[type="text"]:focus {
   transition: all 0.3s ease;
   text-align: center;
   font-weight: 500;
+  color: #211f1e;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .role-option input[type="radio"]:checked + label {
-  background: #667eea;
-  color: white;
-  border-color: #667eea;
+  background: #cf9a3a;
+  color: #ffffff;
+  border-color: #cf9a3a;
   transform: scale(1.02);
 }
 
 .btn {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  background: linear-gradient(135deg, #cf9a3a 0%, #211f1e 100%);
+  color: #ffffff;
   padding: 12px 24px;
   border: none;
   border-radius: 10px;
@@ -131,14 +157,25 @@ input[type="text"]:focus {
   transition: transform 0.2s ease;
   width: 100%;
   margin-bottom: 10px;
+  min-height: 48px;
+  touch-action: manipulation;
 }
 
 .btn:hover {
   transform: translateY(-2px);
+  background: linear-gradient(135deg, #fc0 0%, #b88a2a 50%, #fc0 100%);
+}
+
+.btn:active {
+  transform: translateY(0);
 }
 
 .btn-secondary {
   background: #6c757d;
+}
+
+.btn-secondary:hover {
+  background: #5a6268;
 }
 
 /* QR Scanner Styles */
@@ -148,20 +185,23 @@ input[type="text"]:focus {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(33, 31, 30, 0.9);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  padding: 20px;
 }
 
 .scanner-content {
-  background: white;
+  background: #333333;
   border-radius: 15px;
   padding: 2rem;
   max-width: 500px;
-  width: 90%;
+  width: 100%;
   text-align: center;
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
 .scanner-wrapper {
@@ -198,13 +238,17 @@ input[type="text"]:focus {
   right: 20px;
   background: rgba(255, 255, 255, 0.2);
   border: none;
-  color: white;
+  color: #ffffff;
   font-size: 1.5rem;
   cursor: pointer;
   border-radius: 50%;
   width: 40px;
   height: 40px;
   z-index: 1001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: manipulation;
 }
 
 .scanning-indicator {
@@ -212,7 +256,7 @@ input[type="text"]:focus {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white;
+  color: #ffffff;
   font-size: 1.2rem;
   font-weight: bold;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
@@ -225,7 +269,7 @@ input[type="text"]:focus {
   height: 20px;
   border: 3px solid rgba(255, 255, 255, 0.3);
   border-radius: 50%;
-  border-top-color: #fff;
+  border-top-color: #cf9a3a;
   animation: spin 1s ease-in-out infinite;
   margin-right: 10px;
 }
@@ -247,17 +291,20 @@ input[type="text"]:focus {
   display: flex;
   gap: 10px;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .manual-input input {
   flex: 1;
   margin-bottom: 0;
+  min-width: 200px;
 }
 
 .manual-input .btn {
   width: auto;
   margin-bottom: 0;
   padding: 12px 20px;
+  white-space: nowrap;
 }
 
 /* Status messages */
@@ -284,4 +331,225 @@ input[type="text"]:focus {
   background: #d1ecf1;
   color: #0c5460;
   border: 1px solid #bee5eb;
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  .app {
+    padding: 5px;
+  }
+
+  .container {
+    padding: 1.5rem;
+    border-radius: 15px;
+    min-height: 350px;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    gap: 8px;
+  }
+
+  .logo img {
+    height: 32px;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .role-options {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .role-option label {
+    padding: 12px;
+    min-height: 50px;
+    font-size: 0.9rem;
+  }
+
+  .btn {
+    padding: 14px 20px;
+    font-size: 1rem;
+    min-height: 52px;
+  }
+
+  .scanner-container {
+    padding: 10px;
+  }
+
+  .scanner-content {
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .close-btn {
+    top: 15px;
+    right: 15px;
+    width: 35px;
+    height: 35px;
+    font-size: 1.3rem;
+  }
+
+  .manual-input form {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .manual-input input {
+    min-width: 100%;
+  }
+
+  .manual-input .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
+  .logo {
+    font-size: 1.3rem;
+  }
+
+  .logo img {
+    height: 28px;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  .btn {
+    padding: 16px 20px;
+    min-height: 56px;
+    font-size: 1.1rem;
+  }
+
+  .scanner-content {
+    padding: 1rem;
+  }
+
+  .close-btn {
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .container {
+    padding: 0.8rem;
+  }
+
+  .logo {
+    font-size: 1.1rem;
+  }
+
+  .logo img {
+    height: 24px;
+  }
+
+  h2 {
+    font-size: 1.1rem;
+  }
+
+  .btn {
+    padding: 18px 20px;
+    min-height: 60px;
+    font-size: 1.2rem;
+  }
+}
+
+/* Landscape orientation adjustments */
+@media (max-height: 500px) and (orientation: landscape) {
+  .container {
+    min-height: 300px;
+    padding: 1rem;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  h2 {
+    margin-bottom: 0.8rem;
+  }
+
+  .input-group {
+    margin-bottom: 1rem;
+  }
+
+  .role-options {
+    margin-bottom: 1rem;
+  }
+
+  .btn {
+    margin-bottom: 8px;
+    padding: 10px 20px;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .logo img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .btn {
+    min-height: 56px;
+    font-size: 1.1rem;
+  }
+
+  .role-option label {
+    min-height: 60px;
+    font-size: 1rem;
+  }
+
+  input[type="password"],
+  input[type="text"] {
+    font-size: 16px; /* Prevents zoom on iOS */
+    padding: 14px;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .container {
+    background: #1a1a1a;
+    color: #ffffff;
+  }
+
+  input[type="password"],
+  input[type="text"] {
+    background: #2a2a2a;
+    color: #ffffff;
+    border-color: #444;
+  }
+
+  .role-option label {
+    background: #2a2a2a;
+    color: #ffffff;
+    border-color: #444;
+  }
+
+  .manual-input {
+    background: #2a2a2a;
+  }
 }

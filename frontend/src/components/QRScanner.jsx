@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Html5QrcodeScanner } from "html5-qrcode";
+import codetantraLogo from "../assets/codetantra_logo.png";
 
 const QRScanner = ({ onClose, onSubmit }) => {
   const [manualId, setManualId] = useState("");
@@ -66,7 +67,10 @@ const QRScanner = ({ onClose, onSubmit }) => {
         ×
       </button>
       <div className="scanner-content">
-        <h3>QR Code Scanner</h3>
+        <div className="logo">
+          <img src={codetantraLogo} alt="CodeTantra Logo" />
+          QR Code Scanner
+        </div>
 
         <div className="scanner-wrapper">
           <div id="qr-reader"></div>

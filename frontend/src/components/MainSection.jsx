@@ -1,26 +1,27 @@
-import { useState } from 'react'
+import { useState } from "react";
+import codetantraLogo from "../assets/codetantra_logo.png";
 
 const MainSection = ({ onLogout, onOpenScanner }) => {
-  const [selectedRole, setSelectedRole] = useState('')
+  const [selectedRole, setSelectedRole] = useState("");
 
   const handleRoleChange = (role) => {
-    setSelectedRole(role)
-  }
+    setSelectedRole(role);
+  };
 
   const handleOpenScanner = () => {
-    onOpenScanner(selectedRole)
-  }
+    onOpenScanner(selectedRole);
+  };
 
   const roles = [
-    { id: 'attendance', value: 'attendence', label: 'Attendance' },
-    { id: 'lunch', value: 'lunch', label: 'Lunch' },
-    { id: 'dinner', value: 'dinner', label: 'Dinner' },
-    { id: 'breakfast', value: 'breakfast', label: 'Breakfast' }
-  ]
+    { id: "attendance", value: "attendence", label: "Attendance" },
+    { id: "lunch", value: "lunch", label: "Lunch" },
+    { id: "dinner", value: "dinner", label: "Dinner" },
+    { id: "breakfast", value: "breakfast", label: "Breakfast" },
+  ];
 
   return (
     <div className="container">
-      <div className="logo">📱 NFC Scanner</div>
+      <div className="logo">NFC Scanner</div>
       <h2>Select Role & Scan</h2>
 
       <div className="input-group">
@@ -49,7 +50,7 @@ const MainSection = ({ onLogout, onOpenScanner }) => {
         Logout
       </button>
     </div>
-  )
-}
+  );
+};
 
-export default MainSection 
+export default MainSection;
