@@ -22,68 +22,85 @@ const auth = new google.auth.GoogleAuth({
 
 const SPREADSHEET_ID = process.env.SPREADSHEET_ID;
 
-app.get('/api/attendence', async (req, res) => {
-    const { studentId } = req.query;
+const updateSheet = async (role, id) => {
+    const client = await auth.getClient();
+    const sheets = google.sheets({ version: 'v4', auth: client });
+    const now = new Date().toLocaleString('en-US', {
+        timeZone: 'Asia/Kolkata',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: true
+    });
+    
+    const roleRow = {
+        "attendence": 'E',
+        "lunch": 'F',
+        "dinner": 'G',
+        "breakfast": 'H',
+    }
 
-    if (!studentId) {
-        return res.status(400).send('Missing student ID');
+    const getRes = await sheets.spreadsheets.values.get({
+        spreadsheetId: SPREADSHEET_ID,
+        range: `Sheet1!A2:E`,
+    });
+    const rows = getRes.data.values;
+
+    let foundId = -1;
+    for (let i = 0; i < rows.length; i++) {
+        if (rows[i][0] === studentId) {
+            foundId = i + 2;
+            break;
+        }
+    }
+
+    if (foundId === -1) {
+        return res.status(404).json({ msg: 'Student not found' });
+    }
+
+    await sheets.spreadsheets.values.update({
+        spreadsheetId: SPREADSHEET_ID,
+        range: `Sheet1!${roleRow[role]}${foundId}`,
+        valueInputOption: 'USER_ENTERED',
+        requestBody: {
+            values: [["Yes"]],
+        },
+    });
+
+    await sheets.spreadsheets.values.update({
+        spreadsheetId: SPREADSHEET_ID,
+        range: `Sheet1!D${foundId}`,
+        valueInputOption: 'USER_ENTERED',
+        requestBody: {
+            values: [[now]],
+        },
+    });
+}
+app.get('/api/:role', async (req, res) => {
+    const { role } = req.params;
+    const { id } = req.query;
+    const { password } = req.body;
+
+    if (!id || !password) return res.status(400).json({ message: "Missing data" });
+
+    // Validate password
+    if (password !== process.env.SECRET_PASSWORD) {
+        return res.status(401).json({ message: "Invalid password" });
+    }
+
+    if (!["attendence", "lunch", "dinner", "breakfast"].includes(role)) {
+        return res.status(400).json({ message: "Invalid role" });
     }
 
     try {
-        const client = await auth.getClient();
-        const sheets = google.sheets({ version: 'v4', auth: client });
-        const now = new Date().toLocaleString('en-US', {
-            timeZone: 'Asia/Kolkata',
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit',
-            second: '2-digit',
-            hour12: true
-        });;
-
-        const getRes = await sheets.spreadsheets.values.get({
-            spreadsheetId: SPREADSHEET_ID,
-            range: `Sheet1!A2:E`,
-        });
-        const rows = getRes.data.values;
-
-        let foundId = -1;
-        for (let i = 0; i < rows.length; i++) {
-            if (rows[i][0] === studentId) {
-                foundId = i + 2;
-                break;
-            }
-        }
-
-        if (foundId === -1) {
-            return res.status(404).json({ msg: 'Student not found' });
-        }
-
-        await sheets.spreadsheets.values.update({
-            spreadsheetId: SPREADSHEET_ID,
-            range: `Sheet1!E${foundId}`,
-            valueInputOption: 'USER_ENTERED',
-            requestBody: {
-                values: [["Yes"]],
-            },
-        });
-
-        await sheets.spreadsheets.values.update({
-            spreadsheetId: SPREADSHEET_ID,
-            range: `Sheet1!D${foundId}`,
-            valueInputOption: 'USER_ENTERED',
-            requestBody: {
-                values: [[now]],
-            },
-        });
-
-
-        res.status(201).json({ msg: 'Registration Successfull' })
-    } catch (error) {
-        console.log(error)
-        res.status(500).json({ msg: 'Some error occured' })
+        // Google Sheets update logic
+        await updateSheet(id, role);
+        return res.status(200).json({ message: `Marked ${role} for ${id}` });
+    } catch (err) {
+        return res.status(500).json({ message: "Error updating sheet" });
     }
 })
 
