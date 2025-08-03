@@ -21,7 +21,6 @@ const auth = new google.auth.GoogleAuth({
 });
 
 const SPREADSHEET_ID = process.env.SPREADSHEET_ID;
-
 const updateSheet = async (id, role) => {
     const client = await auth.getClient();
     const sheets = google.sheets({ version: 'v4', auth: client });
@@ -35,7 +34,7 @@ const updateSheet = async (id, role) => {
         second: '2-digit',
         hour12: true
     });
-    
+
     const roleCol = {
         "attendence": 'E',
         "lunch": 'F',
@@ -47,14 +46,15 @@ const updateSheet = async (id, role) => {
         spreadsheetId: SPREADSHEET_ID,
         range: `Table1!A2:H`,
     });
-    const rows = getRes.data.values;
 
+    const rows = getRes.data.values || [];
     let foundId = -1;
+
     for (let i = 0; i < rows.length; i++) {
         if (rows[i][0] === id) {
-            foundId = i + 2; // row number in sheet (because we start at A2)
-            // Check if already marked "Yes"
-            const roleIndex = Object.keys(roleCol).indexOf(role) + 4;
+            foundId = i + 2;
+            const colLetter = roleCol[role];
+            const roleIndex = colLetter.charCodeAt(0) - 'A'.charCodeAt(0);
             if (rows[i][roleIndex] && rows[i][roleIndex].toLowerCase() === 'yes') {
                 return { success: false, status: 200, msg: `DUPLICATE FOUND! ${role} already marked for ${id}` };
             }
@@ -83,7 +83,10 @@ const updateSheet = async (id, role) => {
             values: [[now]],
         },
     });
+
+    return { success: true, status: 200, msg: `Marked ${role} for ${id}` };
 }
+
 app.get('/api/:role', async (req, res) => {
     const { role } = req.params;
     const { id } = req.query;
