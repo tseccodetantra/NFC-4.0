@@ -71,7 +71,7 @@ const updateSheet = async (id, role) => {
         range: `Table1!${roleCol[role]}${foundId}`,
         valueInputOption: 'USER_ENTERED',
         requestBody: {
-            values: [["Yes"]],
+            values: [[now]],
         },
     });
 
