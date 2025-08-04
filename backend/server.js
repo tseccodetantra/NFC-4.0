@@ -55,7 +55,7 @@ const updateSheet = async (id, role) => {
             foundId = i + 2;
             const colLetter = roleCol[role];
             const roleIndex = colLetter.charCodeAt(0) - 'A'.charCodeAt(0);
-            if (rows[i][roleIndex] && rows[i][roleIndex].toLowerCase() === 'yes') {
+            if (rows[i][roleIndex] && rows[i][roleIndex].toLowerCase().length() !== 0) {
                 return { success: false, status: 200, msg: `DUPLICATE FOUND! ${role} already marked for ${id}` };
             }
             break;
