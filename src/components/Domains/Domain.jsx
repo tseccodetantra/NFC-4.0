@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import pic from '../../assets/webdev.png';
-import pic1 from '../../assets/blockchain.png';
-import pic2 from '../../assets/socialCause.png';
-import pic3 from '../../assets/Aiml.png';
-import './Domain.css'
+import { useState } from "react";
+import pic from "../../assets/webdev.png";
+import pic1 from "../../assets/blockchain.png";
+import pic2 from "../../assets/socialCause.png";
+import pic3 from "../../assets/Aiml.png";
+import "./Domain.css";
 
 function Domain() {
   const [selectedCard, setSelectedCard] = useState(null);
@@ -11,49 +11,47 @@ function Domain() {
   const cardData = [
     {
       img: pic3,
-      title: 'AI-ML',
-      text: 'Develop intelligent systems and machine learning models',
-      problem: `Problem Statement: 
-                  To be Released`,
+      title: "AI-ML",
+      text: "Develop intelligent systems and machine learning models",
+      pdfLink: "/NFC-4.0/pdfs/ai-ml-problem.pdf",
     },
     {
       img: pic,
-      title: 'Web/App Development',
-      text: 'Build responsive websites and applications',
-      problem: `Problem Statement: 
-                  To be Released`,
+      title: "Web/App Development",
+      text: "Build responsive websites and applications",
+      pdfLink: "/NFC-4.0/pdfs/web-dev-problem.pdf",
     },
     {
       img: pic2,
-      title: 'Social Cause',
-      text: 'Tackle societal challenges with tech-driven solutions',
-      problem: `Problem Statement: 
-                  To be Released`,
+      title: "Social Cause",
+      text: "Tackle societal challenges with tech-driven solutions",
+      pdfLink: "/NFC-4.0/pdfs/social-cause-problem.pdf",
     },
     {
       img: pic1,
-      title: 'Block chain',
-      text: 'Build decentralized apps and smart contracts',
-      problem: `Problem Statement: 
-                  To be Released`,
+      title: "Block chain",
+      text: "Build decentralized apps and smart contracts",
+      pdfLink: "/NFC-4.0/pdfs/blockchain-problem.pdf",
     },
   ];
 
   return (
     <>
-      <div className="header-container desktop-scroll-margin" id='domain'>
+      <div className="header-container desktop-scroll-margin" id="domain">
         <h1 className="gradient-text">Challenge Domains</h1>
         <h2 className="gd-text">Choose your code quest</h2>
       </div>
 
-      <div className={`theBox ${selectedCard !== null ? 'focused' : ''}`}>
+      <div className={`theBox ${selectedCard !== null ? "focused" : ""}`}>
         {cardData.map((card, index) => {
           const isSelected = selectedCard === index;
 
           return (
             <div
               key={index}
-              className={`card1 ${isSelected ? 'expanded' : selectedCard !== null ? 'hidden' : ''}`}
+              className={`card1 ${
+                isSelected ? "expanded" : selectedCard !== null ? "hidden" : ""
+              }`}
               onClick={() => {
                 if (selectedCard === null) setSelectedCard(index);
               }}
@@ -66,7 +64,7 @@ function Domain() {
                     setSelectedCard(null);
 
                     // Dispatch custom event for AOS refresh
-                    window.dispatchEvent(new CustomEvent('domainCardClosed'));
+                    window.dispatchEvent(new CustomEvent("domainCardClosed"));
                   }}
                 >
                   ×
@@ -76,7 +74,14 @@ function Domain() {
               {isSelected ? (
                 <div className="problem-statement">
                   <h2>{card.title}</h2>
-                  <p style={{ whiteSpace: 'pre-line' }}>{card.problem}</p>
+                  <a
+                    href={card.pdfLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="pdf-link"
+                  >
+                    Download Problem Statement PDF
+                  </a>
                 </div>
               ) : (
                 <>

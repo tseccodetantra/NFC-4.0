@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 
 body {
-  font-family: 'Press Start 2P', cursive;
-  background-color: #17173B;
+  font-family: "Press Start 2P", cursive;
+  background-color: #17173b;
   min-height: 100vh;
   padding: 20px;
   /* cursor: url('https://cdn-icons-png.flaticon.com/32/888/888879.png'), auto; */
@@ -26,7 +26,6 @@ body {
   opacity: 0.2;
 } */
 
-
 .theBox {
   display: grid;
   grid-template-columns: repeat(2, minmax(300px, 1fr));
@@ -39,7 +38,6 @@ body {
   /* height: 100%; */
   /* border: solid; */
   /* align-items: center; */
-
 }
 
 .card1 {
@@ -56,9 +54,9 @@ body {
     0 0 0 4px #ffa1fd,
     0 0 10px #f96288,
     inset 0 0 12px #6b2d5c; */
-    image-rendering: pixelated;
+  image-rendering: pixelated;
   border: 8px solid transparent;
-  border-image: url('/borders/pixel-frame.png') 8 stretch;
+  border-image: url("/borders/pixel-frame.png") 8 stretch;
   transition: all 0.3s ease;
   cursor: pointer;
   border-radius: 0;
@@ -67,7 +65,7 @@ body {
 }
 
 .card1::before {
-  content: '';
+  content: "";
   position: absolute;
   top: -50%;
   left: -50%;
@@ -83,7 +81,6 @@ body {
   transition: all 0.5s ease;
   opacity: 0;
 }
-
 
 .card1:hover::before {
   opacity: 1;
@@ -104,7 +101,7 @@ body {
   height: 80px;
   image-rendering: pixelated;
   object-fit: contain;
-  /* border: 3px solid #00e0c8; */  
+  /* border: 3px solid #00e0c8; */
   margin-bottom: 15px;
   filter: sepia(20%) hue-rotate(-10deg);
   transition: transform 0.3s ease;
@@ -212,13 +209,21 @@ body {
 
 /* Arrow animations */
 @keyframes bounceLeft {
-  0% { transform: translateY(-50%) translateX(0); }
-  100% { transform: translateY(-50%) translateX(5px); }
+  0% {
+    transform: translateY(-50%) translateX(0);
+  }
+  100% {
+    transform: translateY(-50%) translateX(5px);
+  }
 }
 
 @keyframes bounceRight {
-  0% { transform: translateY(-50%) translateX(0); }
-  100% { transform: translateY(-50%) translateX(-5px); }
+  0% {
+    transform: translateY(-50%) translateX(0);
+  }
+  100% {
+    transform: translateY(-50%) translateX(-5px);
+  }
 }
 
 /* @keyframes flicker {
@@ -268,15 +273,15 @@ body {
   .theBox {
     grid-template-columns: 1fr;
   }
-  
+
   .card1 {
     padding: 20px;
   }
-  
+
   .card1 h1 {
     font-size: 1rem;
   }
-  
+
   .card1 p {
     font-size: 0.6rem;
   }
