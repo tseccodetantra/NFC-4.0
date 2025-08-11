@@ -157,6 +157,30 @@ const defaultSponsorsData = [
       linkedin: "https://www.linkedin.com/company/admitabroad/",
     },
   },
+  {
+    name: "Kwikpic",
+    imageUrl:
+      "https://media.licdn.com/dms/image/v2/C4D0BAQHXkJ16xQRjLg/company-logo_200_200/company-logo_200_200/0/1653907690114?e=2147483647&v=beta&t=bBIld7NSADNfyhazM8fOUDsJ7Zir7LIJk0aS6f_mOvQ",
+    website: "https://www.kwikpic.in",
+    description:
+      "An AI-powered photo-sharing platform specializing in instant, facial-recognition-enabled delivery of event photography.",
+    industry: "Photography Technology",
+    employees: "2-10",
+    founded: "2019",
+    specialties: [
+    "Facial recognition",
+    "Instant photo sorting & delivery",
+    "Event-based group sharing",
+    "Business branding features",
+    "Album selection & client favorites",
+    "Analytics & marketing tools",
+    "High-quality, optimized image delivery"
+    ],
+    socialLinks: {
+      linkedin:
+        "https://www.linkedin.com/company/kwikpic-in/",
+    },
+  },
 ];
 
 const Sponsors = ({
