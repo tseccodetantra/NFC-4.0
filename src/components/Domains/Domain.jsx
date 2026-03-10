@@ -1,6 +1,6 @@
 import { useState } from "react";
 import pic from "../../assets/webdev.png";
-import pic1 from "../../assets/blockchain.png";
+import pic1 from "../../assets/blockChain.png";
 import pic2 from "../../assets/socialCause.png";
 import pic3 from "../../assets/Aiml.png";
 import "./Domain.css";
@@ -49,9 +49,8 @@ function Domain() {
           return (
             <div
               key={index}
-              className={`card1 ${
-                isSelected ? "expanded" : selectedCard !== null ? "hidden" : ""
-              }`}
+              className={`card1 ${isSelected ? "expanded" : selectedCard !== null ? "hidden" : ""
+                }`}
               onClick={() => {
                 if (selectedCard === null) setSelectedCard(index);
               }}

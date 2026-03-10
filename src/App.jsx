@@ -10,7 +10,7 @@ import FAQ from "./components/FAQ/FAQ";
 import Footer from "./components/FAQ/FAQfooterUI/Footer";
 import Sponsors from "./components/Sponsors/SponsorsSection";
 import Preloader from "./components/Preloader/Preloader";
-import Experience from "./components/experience/Experience";
+import Experience from "./components/Experience/Experience";
 function App() {
   const [showPreloader, setShowPreloader] = useState(true);
 

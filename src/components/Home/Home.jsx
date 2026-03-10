@@ -4,7 +4,7 @@ import ship1 from "../../assets/spaceships/ship1.png";
 import shootSound from "../../assets/sounds/shoot.mp3";
 import cometBreakSound from "../../assets/sounds/cometbreak.mp3";
 import kachinkSound from "../../assets/sounds/kachink.mp3";
-import "./home.css";
+import "./Home.css";
 import Coinslot from "./Coinslot";
 
 const TARGET_DATE = new Date("2025-07-30T23:59:59+05:30");

@@ -137,9 +137,8 @@ function Experience() {
               <div
                 className="teams-carousel"
                 style={{
-                  transform: `translateX(-${
-                    currentCarouselIndex * (100 / cardsPerView)
-                  }%)`,
+                  transform: `translateX(-${currentCarouselIndex * (100 / cardsPerView)
+                    }%)`,
                 }}
               >
                 {otherTeams.map((team, index) => (
@@ -148,14 +147,13 @@ function Experience() {
                     className="team-card"
                     style={{
                       borderColor: team.color,
-                      flex: `0 0 calc(${100 / cardsPerView}% - ${
-                        (20 * (cardsPerView - 1)) / cardsPerView
-                      }px)`,
+                      flex: `0 0 calc(${100 / cardsPerView}% - ${(20 * (cardsPerView - 1)) / cardsPerView
+                        }px)`,
                     }}
                   >
                     <div className="project-image-container1">
                       <img
-                        src={team.projectImage || "/placeholder.svg"}
+                        src={team.projectImage || "/NFC-4.0/placeholder.svg"}
                         alt={`Project ${index + 1}`}
                         className="project-image1"
                       />
@@ -188,9 +186,8 @@ function Experience() {
           }).map((_, index) => (
             <div
               key={index}
-              className={`progress-dot ${
-                index === currentCarouselIndex ? "active" : ""
-              }`}
+              className={`progress-dot ${index === currentCarouselIndex ? "active" : ""
+                }`}
               onClick={() => setCurrentCarouselIndex(index)}
             />
           ))}
